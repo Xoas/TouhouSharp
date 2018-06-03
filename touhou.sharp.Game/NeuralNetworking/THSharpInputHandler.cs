@@ -1,4 +1,6 @@
-﻿using Symcol.Core.NeuralNetworking;
+﻿using System.Collections.Generic;
+using osu.Framework.Input.Bindings;
+using Symcol.Core.NeuralNetworking;
 
 namespace touhou.sharp.Game.NeuralNetworking
 {
@@ -6,9 +8,25 @@ namespace touhou.sharp.Game.NeuralNetworking
     {
         public override TensorFlowBrain<THSharpAction> TensorFlowBrain => new THSharpBrain();
 
-        public override THSharpAction[] GetActiveActions => new THSharpAction[]
+        public override THSharpAction[] GetActiveActions => new[]
         {
+            THSharpAction.Up,
+            THSharpAction.Down,
+            THSharpAction.Left,
+            THSharpAction.Right
+        };
 
+        public override IEnumerable<KeyBinding> DefaultKeyBindings => new[]
+        {
+            new KeyBinding(InputKey.W, THSharpAction.Up),
+            new KeyBinding(InputKey.S, THSharpAction.Down),
+            new KeyBinding(InputKey.A, THSharpAction.Left),
+            new KeyBinding(InputKey.D, THSharpAction.Right),
+            new KeyBinding(InputKey.MouseLeft, THSharpAction.Shoot),
+            new KeyBinding(InputKey.MouseRight, THSharpAction.Spell),
+            new KeyBinding(InputKey.E, THSharpAction.Increase),
+            new KeyBinding(InputKey.Q, THSharpAction.Decrease),
+            new KeyBinding(InputKey.Shift, THSharpAction.Slow),
         };
     }
 
