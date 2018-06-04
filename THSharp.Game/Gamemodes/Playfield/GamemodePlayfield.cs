@@ -2,7 +2,7 @@
 
 namespace THSharp.Game.Gamemodes.Playfield
 {
-    public abstract class GamePlayfield : SymcolContainer
+    public abstract class GamemodePlayfield : SymcolContainer
     {
 
     }

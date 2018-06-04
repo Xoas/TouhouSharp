@@ -4,7 +4,7 @@ namespace THSharp.Game.Gamemodes
 {
     public abstract class Gamemode
     {
-        public abstract GamePlayfield GetPlayfield();
+        public abstract GamemodePlayfield GetGamemodePlayfield();
 
         public virtual string Name => "";
 

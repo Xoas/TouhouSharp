@@ -1,4 +1,5 @@
 ﻿using System;
+using osu.Framework.Graphics;
 using OpenTK;
 using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces;
@@ -15,6 +16,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
         public DrawableBullet(Bullet b) : base(b)
         {
             Add(new BulletPiece(this));
+
+            Anchor = Anchor.TopLeft;
+            Origin = Anchor.Centre;
 
             Position = b.StartPosition;
 

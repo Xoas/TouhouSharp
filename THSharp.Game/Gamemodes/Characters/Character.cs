@@ -9,6 +9,7 @@ namespace THSharp.Game.Gamemodes.Characters
 
         public virtual double MaxHealth => 80;
 
+        //TODO: do this differently so multiplayer will be good
         public virtual int Team => 0;
 
         public virtual Vector2 Size => new Vector2(32);

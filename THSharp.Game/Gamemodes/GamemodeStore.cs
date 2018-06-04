@@ -8,7 +8,7 @@ using System.Reflection;
 namespace THSharp.Game.Gamemodes
 {
     //Source for most of this: osu.Game.Rulesets.RulesetStore.cs
-    public class GamemodeStore
+    public static class GamemodeStore
     {
         /// <summary>
         /// List of all currently loaded Gamemodes
