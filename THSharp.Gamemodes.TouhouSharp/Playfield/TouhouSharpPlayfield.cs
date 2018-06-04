@@ -1,12 +1,11 @@
 ﻿using osu.Framework.Graphics;
 using OpenTK;
 using THSharp.Game.Gamemodes.Playfield;
-using THSharp.Gamemodes.TouhouSharp.Characters;
 using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters;
 
 namespace THSharp.Gamemodes.TouhouSharp.Playfield
 {
-    public class TouhouSharpPlayfield : GamePlayfield
+    public class TouhouSharpPlayfield : GamemodePlayfield
     {
         public readonly AbstractionField GameField;
 
@@ -22,7 +21,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Playfield
                 Size = new Vector2(512, 820)
             };
 
-            GameField.Current.Add(new DrawableTouhouSharpPlayer(new TouhouSharpPlayer(), this));
+            GameField.Current.Add(new DrawableSakuya(this));
         }
 
         protected override void Update()

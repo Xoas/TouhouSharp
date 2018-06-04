@@ -1,8 +1,6 @@
-﻿using THSharp.Game.Gamemodes.Characters;
-
-namespace THSharp.Gamemodes.TouhouSharp.Characters
+﻿namespace THSharp.Gamemodes.TouhouSharp.Characters
 {
-    public class TouhouSharpEnemy : Enemy
+    public class TouhouSharpEnemy : TouhouSharpCharacter
     {
         public override string Name => "";
     }

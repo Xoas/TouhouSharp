@@ -1,8 +1,6 @@
-﻿using THSharp.Game.Gamemodes.Characters;
-
-namespace THSharp.Gamemodes.TouhouSharp.Characters
+﻿namespace THSharp.Gamemodes.TouhouSharp.Characters
 {
-    public class TouhouSharpBoss : Boss
+    public class TouhouSharpBoss : TouhouSharpCharacter
     {
         public override string Name => "Kokoro Hatano";
     }

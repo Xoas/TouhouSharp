@@ -1,9 +1,13 @@
-﻿using THSharp.Game.Gamemodes.Characters;
+﻿using OpenTK;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters
 {
-    public class TouhouSharpPlayer : Player
+    public abstract class TouhouSharpPlayer : TouhouSharpCharacter
     {
-        public override string Name => "Alex";
+        public virtual double MaxEnergy => 24;
+
+        public override Vector2 Size => new Vector2(64);
+
+        public override double HitboxWidth => 4;
     }
 }

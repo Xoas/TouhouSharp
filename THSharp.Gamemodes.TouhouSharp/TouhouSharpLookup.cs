@@ -6,7 +6,7 @@ namespace THSharp.Gamemodes.TouhouSharp
 {
     public class TouhouSharpLookup : Gamemode
     {
-        public override GamePlayfield GetPlayfield() => new TouhouSharpPlayfield();
+        public override GamemodePlayfield GetGamemodePlayfield() => new TouhouSharpPlayfield();
 
         public override string Name => "TouhouSharp";
 
