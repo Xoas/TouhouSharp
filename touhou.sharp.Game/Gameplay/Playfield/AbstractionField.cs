@@ -25,8 +25,8 @@ namespace touhou.sharp.Game.Gameplay.Playfield
 
             AbstractionLevel = abstraction;
 
-            RelativeSizeAxes = Axes.Both;
-
+            Anchor = Anchor.Centre;
+            Origin = Anchor.Centre;
             Name = "AbstractionField";
 
             Children = new Drawable[]
