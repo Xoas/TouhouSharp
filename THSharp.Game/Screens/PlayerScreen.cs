@@ -7,7 +7,8 @@ namespace THSharp.Game.Screens
     {
         public PlayerScreen()
         {
-            Child = GamemodeStore.LoadedGamemodes.FirstOrDefault()?.GetPlayfield();
+            if (GamemodeStore.LoadedGamemodes.FirstOrDefault() != null)
+                Child = GamemodeStore.LoadedGamemodes.FirstOrDefault()?.GetPlayfield();
         }
     }
 }

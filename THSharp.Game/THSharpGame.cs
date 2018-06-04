@@ -16,6 +16,8 @@ namespace THSharp.Game
             Add(homeScreen);
 
             homeScreen.Exited += _ => Scheduler.AddDelayed(Exit, 500);
+
+            GamemodeStore.ReloadGamemodes();
         }
 
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
