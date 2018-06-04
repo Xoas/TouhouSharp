@@ -47,7 +47,7 @@ namespace touhou.sharp.Game.Gameplay.Playfield
                     BlurSigma = new Vector2(4)
                 }),
                 Current
-            };
+            };            
 
             AbstractionLevel.ValueChanged += value =>
             {
