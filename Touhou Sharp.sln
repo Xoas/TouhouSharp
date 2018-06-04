@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Symcol.Core", "Symcol.Core\Symcol.Core.csproj", "{C9A73D4E-2D47-4C49-AC97-7A54BCA81445}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touhou.sharp.Game.Resources", "touhou.sharp.Game.Resources\touhou.sharp.Game.Resources.csproj", "{32962554-E724-4EBA-906A-2DA633FFE6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THSharp.Game.Resources", "THSharp.Game.Resources\THSharp.Game.Resources.csproj", "{32962554-E724-4EBA-906A-2DA633FFE6BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touhou.sharp.Game", "touhou.sharp.Game\touhou.sharp.Game.csproj", "{FBDB7628-34B6-4EEF-A7CF-95E307EF0A64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THSharp.Game", "THSharp.Game\THSharp.Game.csproj", "{FBDB7628-34B6-4EEF-A7CF-95E307EF0A64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "touhou.sharp.Desktop", "touhou.sharp.Desktop\touhou.sharp.Desktop.csproj", "{E869B5D2-AE5F-4020-A7FC-81AD3643609E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THSharp.Desktop", "THSharp.Desktop\THSharp.Desktop.csproj", "{E869B5D2-AE5F-4020-A7FC-81AD3643609E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Framework", "osu-framework\osu.Framework\osu.Framework.csproj", "{181362E3-FCA0-4DF3-9919-B26FAD4F1FF0}"
 EndProject
