@@ -1,7 +1,8 @@
 ﻿using OpenTK;
 using Symcol.Core.GameObjects;
+using THSharp.Game.Gamemodes.Projectiles;
 
-namespace THSharp.Game.Gamemodes.Projectiles
+namespace THSharp.Gamemodes.TouhouSharp.Projectiles
 {
     public class Bullet : Projectile
     {

@@ -10,7 +10,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Playfield
     {
         public readonly AbstractionField GameField;
 
-        protected TouhouSharpPlayfield()
+        public TouhouSharpPlayfield()
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;

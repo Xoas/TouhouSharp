@@ -1,8 +1,9 @@
 ﻿using System;
 using OpenTK;
-using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles.Pieces;
+using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
+using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces;
 
-namespace THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles
+namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
 {
     public class DrawableBullet : DrawableProjectile<Bullet>
     {

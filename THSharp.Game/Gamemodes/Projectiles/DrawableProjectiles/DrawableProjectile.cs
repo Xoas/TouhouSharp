@@ -8,10 +8,12 @@ namespace THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles
     {
         public P Projectile { get; }
 
+        public readonly SymcolHitbox Hitbox;
+
         protected DrawableProjectile(P p)
         {
             Projectile = p;
-            Add(new SymcolHitbox(p.Size, p.Shape)
+            Add(Hitbox = new SymcolHitbox(p.Size, p.Shape)
             {
                 Team = p.Team
             });

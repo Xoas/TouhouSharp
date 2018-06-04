@@ -1,5 +1,4 @@
 ﻿using OpenTK;
-using OpenTK.Graphics;
 using THSharp.Game.Gamemodes.Playfield;
 using THSharp.Game.Graphics;
 
@@ -8,24 +7,9 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
     public abstract class DrawableEnemy<E> : DrawableCharacter<E>
         where E : Enemy
     {
-        public override double MaxHealth => 60;
-
-        protected override string CharacterName => "enemy";
-
-        public override Color4 PrimaryColor => characterColor;
-
-        protected override float HitboxWidth => 48;
-
-#pragma warning disable 649
-        private Color4 characterColor;
-#pragma warning restore 649
-
         protected DrawableEnemy(E e, GamePlayfield playfield) : base(e, playfield)
         {
             AlwaysPresent = true;
-
-            Team = 1;
-            //characterColor = drawablePattern.AccentColour;
         }
 
         protected override void MovementAnimations()
@@ -76,8 +60,8 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         protected override void LoadAnimationSprites(THSharpSkinElement textures)
         {
             base.LoadAnimationSprites(textures);
-            RightSprite.Texture = textures.GetSkinTextureElement(CharacterName);
-            RealityRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
+            RightSprite.Texture = textures.GetSkinTextureElement(Character.Name);
+            RealityRightSprite.Texture = textures.GetSkinTextureElement(Character.Name + "Kiai");
         }
 
         protected override void Death()

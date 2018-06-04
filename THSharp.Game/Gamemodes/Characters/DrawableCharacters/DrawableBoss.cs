@@ -7,20 +7,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
     public abstract class DrawableBoss<B> : DrawableCharacter<B>
         where B : Boss
     {
-        public override double MaxHealth => 20000;
-
-        protected override string CharacterName => "Kokoro Hatano";
-
-        protected override float HitboxWidth => 64;
-
         protected DrawableBoss(B b, GamePlayfield playfield) : base(b, playfield)
         {
             // ReSharper disable once PossibleLossOfFraction
             Position = new Vector2(256, 384 / 2);
             AlwaysPresent = true;
-            Abstraction = 3;
             Alpha = 0;
-            Team = 1;
         }
 
         protected override void LoadComplete()
@@ -44,7 +36,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
             RealityRightSprite.Alpha = 0;
             RealityStillSprite.Alpha = 1;
 
-            RealityStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + " Kiai");
+            //RealityStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + " Kiai");
 
             Size = new Vector2(128);
         }

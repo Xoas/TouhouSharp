@@ -1,6 +1,6 @@
 ﻿namespace THSharp.Game.Gamemodes.Characters
 {
-    public class Player : Character
+    public abstract class Player : Character
     {
 
     }

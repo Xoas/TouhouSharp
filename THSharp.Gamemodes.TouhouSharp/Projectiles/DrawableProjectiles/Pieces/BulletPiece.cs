@@ -3,7 +3,7 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 
-namespace THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles.Pieces
+namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces
 {
     public class BulletPiece : SymcolCircularContainer
     {

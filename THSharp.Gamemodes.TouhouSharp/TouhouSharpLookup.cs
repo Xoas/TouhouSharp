@@ -1,10 +1,13 @@
 ﻿using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Playfield;
+using THSharp.Gamemodes.TouhouSharp.Playfield;
 
 namespace THSharp.Gamemodes.TouhouSharp
 {
     public class TouhouSharpLookup : Gamemode
     {
-        public override GamePlayfield GetPlayfield => throw new System.NotImplementedException();
+        public override GamePlayfield GetPlayfield() => new TouhouSharpPlayfield();
+
+        public override int? OfficialID => 0;
     }
 }

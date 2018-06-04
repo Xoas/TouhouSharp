@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using osu.Framework.Allocation;
+﻿using osu.Framework.Allocation;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -10,10 +9,8 @@ using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Graphics;
-using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
-using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters;
 
-namespace THSharp.Game.Gamemodes.Characters.Pieces
+namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 {
     public class Seal : Container
     {
@@ -47,8 +44,8 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
         {
             if (character is DrawableTouhouSharpPlayer v)
             {
-                Color4 lightColor = v.PrimaryColor.Lighten(0.5f);
-                Color4 darkColor = v.PrimaryColor.Darken(0.5f);
+                Color4 lightColor = v.Character.PrimaryColor.Lighten(0.5f);
+                Color4 darkColor = v.Character.PrimaryColor.Darken(0.5f);
 
                 Size = new Vector2(90);
 
@@ -84,7 +81,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                                 RelativeSizeAxes = Axes.Both,
                                 Size = new Vector2(2f),
 
-                                Colour = v.PrimaryColor,
+                                Colour = v.Character.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 Texture = textures.GetSkinTextureElement("seal"),
@@ -103,10 +100,10 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         {
                             RelativeSizeAxes = Axes.Both,
                             InnerRadius = 0.05f,
-                            Colour = v.ComplementaryColor
+                            Colour = v.Character.ComplementaryColor
                         }).WithEffect(new GlowEffect
                         {
-                            Colour = v.ComplementaryColor,
+                            Colour = v.Character.ComplementaryColor,
                             Strength = 2,
                             PadExtent = true
                         }),
@@ -124,10 +121,10 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         {
                             RelativeSizeAxes = Axes.Both,
                             InnerRadius = 0.05f,
-                            Colour = v.SecondaryColor
+                            Colour = v.Character.SecondaryColor
                         }).WithEffect(new GlowEffect
                         {
-                            Colour = v.SecondaryColor,
+                            Colour = v.Character.SecondaryColor,
                             Strength = 2,
                             PadExtent = true
                         }),
@@ -142,7 +139,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         {
                             Anchor = Anchor.CentreLeft,
                             Origin = Anchor.CentreRight,
-                            Colour = v.ComplementaryColor,
+                            Colour = v.Character.ComplementaryColor,
                             Font = "Venera",
                             TextSize = 16,
                             Alpha = 0.75f,
@@ -162,7 +159,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         {
                             Anchor = Anchor.CentreRight,
                             Origin = Anchor.CentreLeft,
-                            Colour = v.SecondaryColor,
+                            Colour = v.Character.SecondaryColor,
                             Font = "Venera",
                             TextSize = 16,
                             Alpha = 0.75f,
@@ -174,8 +171,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                     },
                 };
 
-                /*
-                switch (v.Player.FileName)
+                switch (v.Character.Name)
                 {
                     case "SakuyaIzayoi":
                         characterSigil.Children = new Drawable[]
@@ -190,7 +186,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                             },
                             gear2 = new Sprite
                             {
-                                Colour = v.PrimaryColor,
+                                Colour = v.Character.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 Texture = textures.GetSkinTextureElement("gearMedium"),
@@ -206,7 +202,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                             },
                             gear4 = new Sprite
                             {
-                                Colour = v.PrimaryColor,
+                                Colour = v.Character.PrimaryColor,
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 Texture = textures.GetSkinTextureElement("gearMedium"),
@@ -223,7 +219,6 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         };
                         break;
                 }
-                */
             }
             else
             {
@@ -249,7 +244,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         {
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
-                            Colour = character.PrimaryColor,
+                            Colour = character.Character.PrimaryColor,
                             Texture = textures.GetSkinTextureElement("sign")
                         }
                     }
