@@ -132,8 +132,8 @@ namespace osu.Framework.Graphics.Containers
         {
             get
             {
-                if (Children.Count != 1)
-                    throw new InvalidOperationException($"{nameof(Child)} is only available when there's only 1 in {nameof(Children)}!");
+                //if (Children.Count != 1)
+                    //throw new InvalidOperationException($"{nameof(Child)} is only available when there's only 1 in {nameof(Children)}!");
 
                 return Children[0];
             }
