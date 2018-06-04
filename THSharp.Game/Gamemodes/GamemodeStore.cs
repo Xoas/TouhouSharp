@@ -1,4 +1,5 @@
-﻿using System;
+﻿using osu.Framework.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +52,7 @@ namespace THSharp.Game.Gamemodes
                 }
                 catch (Exception)
                 {
+                    Logger.Log("Error loading a gamemode!", LoggingTarget.Runtime, LogLevel.Error);
                 }
             }
 
@@ -59,6 +61,7 @@ namespace THSharp.Game.Gamemodes
             //add all official modes in order
             foreach (Gamemode g in instances.Where(g => g.OfficialID != null).OrderBy(g => g.OfficialID))
             {
+                Logger.Log("Successfully loaded official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
                 OnGamemodeAdd?.Invoke(g);
             }
@@ -66,6 +69,7 @@ namespace THSharp.Game.Gamemodes
             //add any other modes
             foreach (Gamemode g in instances.Where(g => g.OfficialID == null))
             {
+                Logger.Log("Successfully loaded un-official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
                 OnGamemodeAdd?.Invoke(g);
             }

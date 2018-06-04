@@ -8,6 +8,8 @@ namespace THSharp.Gamemodes.TouhouSharp
     {
         public override GamePlayfield GetPlayfield() => new TouhouSharpPlayfield();
 
+        public override string Name => "TouhouSharp";
+
         public override int? OfficialID => 0;
     }
 }

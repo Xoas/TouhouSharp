@@ -1,8 +1,9 @@
 ﻿using OpenTK;
-using OpenTK.Graphics;
 using osu.Framework.Allocation;
+using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Shapes;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 using Symcol.Core.Graphics.Sprites;
@@ -138,6 +139,95 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
         protected virtual void LoadAnimationSprites(THSharpSkinElement textures)
         {
+            AddRange(new Drawable[]
+            {
+                SoulContainer = new SymcolContainer
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Colour = Character.PrimaryColor,
+                    Alpha = 1,
+                    Children = new Drawable[]
+                    {
+                        StillSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 1,
+                        },
+                        RightSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 0,
+                        },
+                        LeftSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 0,
+                        },
+                    }
+                },
+                RealityContainer = new SymcolContainer
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Alpha = 0,
+                    Children = new Drawable[]
+                    {
+                        RealityStillSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 1,
+                        },
+                        RealityRightSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 0,
+                        },
+                        RealityLeftSprite = new SymcolSprite
+                        {
+                            RelativeSizeAxes = Axes.Both,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 0,
+                        },
+                    }
+                },
+                VisibleHitbox = new CircularContainer
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Alpha = 0,
+                    Size = new Vector2((float)Character.HitboxWidth + (float)Character.HitboxWidth / 4),
+                    BorderColour = Character.PrimaryColor,
+                    BorderThickness = (float)Character.HitboxWidth / 4,
+                    Masking = true,
+
+                    Child = new Box
+                    {
+                        RelativeSizeAxes = Axes.Both
+                    },
+                    EdgeEffect = new EdgeEffectParameters
+                    {
+
+                        Radius = (float)Character.HitboxWidth / 2,
+                        Type = EdgeEffectType.Shadow,
+                        Colour = Character.PrimaryColor.Opacity(0.5f)
+                    }
+                }
+            });
+
             StillSprite.Texture = textures.GetSkinTextureElement(Character.Name);
             RealityStillSprite.Texture = textures.GetSkinTextureElement(Character.Name + "Kiai");
         }

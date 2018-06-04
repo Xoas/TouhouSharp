@@ -6,6 +6,8 @@ namespace THSharp.Game.Gamemodes
     {
         public abstract GamePlayfield GetPlayfield();
 
-        public virtual int? OfficialID { get; }
+        public virtual string Name => "";
+
+        public virtual int? OfficialID => null;
     }
 }
