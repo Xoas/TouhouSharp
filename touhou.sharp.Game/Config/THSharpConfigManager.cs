@@ -13,7 +13,7 @@ namespace touhou.sharp.Game.Config
 
         protected override void InitialiseDefaults()
         {
-            Set(THSharpSetting.Gamemode, Gamemodes.Touhou);
+            Set(THSharpSetting.Gamemode, Gamemodes.TouhouSharp);
 
             Set(THSharpSetting.Skin, "Default");
 
@@ -48,6 +48,7 @@ namespace touhou.sharp.Game.Config
 
     public enum Gamemodes
     {
-        Touhou
+        TouhouSharp,
+        TouhouClassic
     }
 }
