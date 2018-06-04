@@ -250,6 +250,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
                     gear3.RotateTo((float)(Clock.CurrentTime / 1000 * 90) * speed);
                     gear4.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 1.1f * speed);
                     gear5.RotateTo((float)(Clock.CurrentTime / 1000 * 90) * 1.25f * speed);
+                    // ReSharper disable once SuspiciousTypeConversion.Global
                     if (character is DrawableSakuya s) leftValue.Text = s.SetRate.ToString(CultureInfo.InvariantCulture);
                     break;
             }
