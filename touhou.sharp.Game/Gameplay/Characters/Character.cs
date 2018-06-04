@@ -17,8 +17,6 @@ namespace touhou.sharp.Game.Gameplay.Characters
     public abstract class Character : SymcolContainer
     {
         #region Fields
-        public override bool HandleMouseInput => false;
-
         protected Seal Seal { get; private set; }
 
         protected Container KiaiContainer { get; set; }

@@ -5,6 +5,8 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using OpenTK.Graphics;
+using touhou.sharp.Game.Gameplay.Projectiles;
+using touhou.sharp.Game.Gameplay.Projectiles.DrawableProjectiles;
 using touhou.sharp.Game.Graphics;
 using touhou.sharp.Game.NeuralNetworking;
 
@@ -31,6 +33,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
 
+        //TODO: Make everything in the playfield use one of these
         //(MinX,MaxX,MinY,MaxY)
         protected Vector4 PlayerBounds
         {
@@ -129,12 +132,20 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight");
         }
 
+        private double lastShootTime = double.MinValue;
+
         protected override void Update()
         {
             base.Update();
 
             if (HealthHacks)
                 Heal(999999);
+
+            if (Time.Current >= lastShootTime + 200 && Actions[THSharpAction.Shoot])
+            {
+                lastShootTime = Time.Current;
+                PatternWave();
+            }
 
             /*
             foreach (Drawable draw in THSharpPlayfield.GameField.QuarterAbstraction)
@@ -359,7 +370,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             //base.Death();
         }
 
-        /*
         #region Shooting Handling
         private void bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
         {
@@ -367,22 +377,18 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
 
             THSharpPlayfield.GameField.Add(drawableBullet = new DrawableBullet(new Bullet
             {
-                StartTime = Time.Current,
-                Position = Position,
-                BulletAngle = angle,
-                BulletSpeed = speed,
-                BulletDiameter = size,
-                BulletDamage = damage,
-                ColorOverride = color,
+                //StartTime = Time.Current,
+                StartPosition = Position,
+                Angle = angle,
+                Speed = speed,
+                Diameter = size,
+                Damage = damage,
+                Color = color,
                 Team = Team,
-                DummyMode = true,
-                SliderType = SliderType.Straight,
-                Abstraction = 3,
-            }, THSharpPlayfield));
-
-            //if (vampuric)
-            //drawableBullet.OnHit = () => Heal(0.5f);
-            drawableBullet.MoveTo(Position);
+                //DummyMode = true,
+                //SliderType = SliderType.Straight,
+                //Abstraction = 3,
+            }));
         }
 
         protected void PatternWave()
@@ -426,7 +432,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             }
         }
         #endregion
-        */
 
         #region Input Handling
         public override bool ReceiveMouseInputAt(Vector2 screenSpacePos) => true;

@@ -1,4 +1,5 @@
-﻿using Symcol.Core.Graphics.Containers;
+﻿using Symcol.Core.GameObjects;
+using Symcol.Core.Graphics.Containers;
 
 namespace touhou.sharp.Game.Gameplay.Projectiles.DrawableProjectiles
 {
@@ -10,6 +11,10 @@ namespace touhou.sharp.Game.Gameplay.Projectiles.DrawableProjectiles
         protected DrawableProjectile(P p)
         {
             Projectile = p;
+            Add(new SymcolHitbox(p.Size, p.Shape)
+            {
+                Team = p.Team
+            });
         }
     }
 }

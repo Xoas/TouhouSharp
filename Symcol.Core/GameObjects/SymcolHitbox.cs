@@ -22,6 +22,7 @@ namespace Symcol.Core.GameObjects
         /// </summary>
         public Shape Shape { get; }
 
+        //TODO: make all these properties settable
         public SymcolHitbox(Vector2 size, Shape shape = Shape.Circle)
         {
             Anchor = Anchor.Centre;
