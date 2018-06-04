@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\touhou.sharp.Game.props" />
+  <Import Project="..\THSharp.Game.props" />
   <PropertyGroup Label="Project">
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyTitle>touhou.sharp.Game</AssemblyTitle>
+    <AssemblyTitle>THSharp.Game</AssemblyTitle>
     <Description>THSharp</Description>
     <OutputType>Library</OutputType>
     <PlatformTarget>AnyCPU</PlatformTarget>
