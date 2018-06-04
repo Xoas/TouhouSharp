@@ -373,9 +373,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         #region Shooting Handling
         private void bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
         {
-            DrawableBullet drawableBullet;
-
-            THSharpPlayfield.GameField.Add(drawableBullet = new DrawableBullet(new Bullet
+            THSharpPlayfield.GameField.Add(new DrawableBullet(new Bullet
             {
                 //StartTime = Time.Current,
                 StartPosition = Position,
@@ -395,20 +393,20 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
         {
             const int numberbullets = 3;
             double directionModifier = -0.2d;
-            Color4 color = PrimaryColor;
-            double size = 16;
-            double damage = 18;
 
             double cursorAngle = 0;
 
             if (Actions[THSharpAction.Slow])
             {
-                cursorAngle = (MathHelper.RadiansToDegrees(Math.Atan2((Cursor.Position.Y - Position.Y), (Cursor.Position.X - Position.X))) + 90 + Rotation) - 12;
+                cursorAngle = MathHelper.RadiansToDegrees(Math.Atan2(Cursor.Position.Y - Position.Y, Cursor.Position.X - Position.X)) + 90 + Rotation - 12;
                 directionModifier = 0.1d;
             }
 
             for (int i = 1; i <= numberbullets; i++)
             {
+                double size;
+                double damage;
+                Color4 color;
                 if (i % 2 == 0)
                 {
                     size = 20;
