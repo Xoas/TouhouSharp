@@ -60,11 +60,19 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
             });
         }
 
+        private double lastShootTime = double.MinValue;
+
         protected override void Update()
         {
             base.Update();
 
             Position = GetNewPlayerPosition(0.25d);
+
+            if (Time.Current >= lastShootTime + 200 && Actions[THSharpAction.Shoot])
+            {
+                PatternWave();
+                lastShootTime = Time.Current;
+            }
 
             //Cursor.Position = VitaruCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
         }
