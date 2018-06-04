@@ -12,6 +12,7 @@ using THSharp.Game.Graphics;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 {
+    //TODO: get rid of all these ReSharper disables with the Character Upgrade
     public class Seal : Container
     {
         public Container Sign { get; private set; }
@@ -20,18 +21,26 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 
         // ReSharper disable once NotAccessedField.Local
         private SpriteText rightValue;
+        // ReSharper disable once NotAccessedField.Local
         private SpriteText leftValue;
 
+        // ReSharper disable once NotAccessedField.Local
         private CircularProgress health;
+        // ReSharper disable once NotAccessedField.Local
         private CircularProgress energy;
 
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private DrawableTouhouSharpPlayer character;
 
+        // ReSharper disable once NotAccessedField.Local
         private Sprite gear1;
+        // ReSharper disable once NotAccessedField.Local
         private Sprite gear2;
+        // ReSharper disable once NotAccessedField.Local
         private Sprite gear3;
+        // ReSharper disable once NotAccessedField.Local
         private Sprite gear4;
+        // ReSharper disable once NotAccessedField.Local
         private Sprite gear5;
 
         public Seal(DrawableTouhouSharpPlayer character)
