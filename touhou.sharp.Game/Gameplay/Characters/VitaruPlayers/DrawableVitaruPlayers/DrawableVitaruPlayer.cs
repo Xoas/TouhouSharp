@@ -5,6 +5,8 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using OpenTK.Graphics;
+using touhou.sharp.Game.Gameplay.Projectiles;
+using touhou.sharp.Game.Gameplay.Projectiles.DrawableProjectiles;
 using touhou.sharp.Game.Graphics;
 using touhou.sharp.Game.NeuralNetworking;
 
@@ -31,6 +33,7 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
 
+        //TODO: Make everything in the playfield use one of these
         //(MinX,MaxX,MinY,MaxY)
         protected Vector4 PlayerBounds
         {
@@ -129,12 +132,20 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "KiaiRight");
         }
 
+        private double lastShootTime = double.MinValue;
+
         protected override void Update()
         {
             base.Update();
 
             if (HealthHacks)
                 Heal(999999);
+
+            if (Time.Current >= lastShootTime + 200 && Actions[THSharpAction.Shoot])
+            {
+                lastShootTime = Time.Current;
+                PatternWave();
+            }
 
             /*
             foreach (Drawable draw in THSharpPlayfield.GameField.QuarterAbstraction)
@@ -359,50 +370,43 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             //base.Death();
         }
 
-        /*
         #region Shooting Handling
         private void bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
         {
-            DrawableBullet drawableBullet;
-
-            THSharpPlayfield.GameField.Add(drawableBullet = new DrawableBullet(new Bullet
+            THSharpPlayfield.GameField.Add(new DrawableBullet(new Bullet
             {
-                StartTime = Time.Current,
-                Position = Position,
-                BulletAngle = angle,
-                BulletSpeed = speed,
-                BulletDiameter = size,
-                BulletDamage = damage,
-                ColorOverride = color,
+                //StartTime = Time.Current,
+                StartPosition = Position,
+                Angle = angle,
+                Speed = speed,
+                Diameter = size,
+                Damage = damage,
+                Color = color,
                 Team = Team,
-                DummyMode = true,
-                SliderType = SliderType.Straight,
-                Abstraction = 3,
-            }, THSharpPlayfield));
-
-            //if (vampuric)
-            //drawableBullet.OnHit = () => Heal(0.5f);
-            drawableBullet.MoveTo(Position);
+                //DummyMode = true,
+                //SliderType = SliderType.Straight,
+                //Abstraction = 3,
+            }));
         }
 
         protected void PatternWave()
         {
             const int numberbullets = 3;
             double directionModifier = -0.2d;
-            Color4 color = PrimaryColor;
-            double size = 16;
-            double damage = 18;
 
             double cursorAngle = 0;
 
             if (Actions[THSharpAction.Slow])
             {
-                cursorAngle = (MathHelper.RadiansToDegrees(Math.Atan2((Cursor.Position.Y - Position.Y), (Cursor.Position.X - Position.X))) + 90 + Rotation) - 12;
+                cursorAngle = MathHelper.RadiansToDegrees(Math.Atan2(Cursor.Position.Y - Position.Y, Cursor.Position.X - Position.X)) + 90 + Rotation - 12;
                 directionModifier = 0.1d;
             }
 
             for (int i = 1; i <= numberbullets; i++)
             {
+                double size;
+                double damage;
+                Color4 color;
                 if (i % 2 == 0)
                 {
                     size = 20;
@@ -426,7 +430,6 @@ namespace touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlay
             }
         }
         #endregion
-        */
 
         #region Input Handling
         public override bool ReceiveMouseInputAt(Vector2 screenSpacePos) => true;

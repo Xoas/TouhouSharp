@@ -13,7 +13,9 @@ namespace touhou.sharp.Game.Config
 
         protected override void InitialiseDefaults()
         {
-            Set(THSharpSetting.Gamemode, Gamemodes.Touhou);
+            Set(THSharpSetting.Gamemode, Gamemodes.TouhouSharp);
+
+            Set(THSharpSetting.Graphics, Graphics.TouhouSharp);
 
             Set(THSharpSetting.Skin, "Default");
 
@@ -33,6 +35,8 @@ namespace touhou.sharp.Game.Config
     {
         Gamemode,
 
+        Graphics,
+
         Skin,
 
         SavedName,
@@ -46,8 +50,17 @@ namespace touhou.sharp.Game.Config
         LocalPort
     }
 
+    //TODO: Move this / delete this?
     public enum Gamemodes
     {
-        Touhou
+        TouhouSharp,
+        TouhouClassic
+    }
+
+    //TODO: Move this?
+    public enum Graphics
+    {
+        TouhouSharp,
+        Vitaru,
     }
 }
