@@ -31,8 +31,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
         // ReSharper disable once NotAccessedField.Local
         private CircularProgress energy;
 
-        // ReSharper disable once FieldCanBeMadeReadOnly.Local
-        private C character;
+        private readonly C character;
 
         // ReSharper disable once NotAccessedField.Local
         private Sprite gear1;
