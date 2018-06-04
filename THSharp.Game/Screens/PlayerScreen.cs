@@ -1,4 +1,5 @@
-﻿using THSharp.Game.Gameplay.Playfield;
+﻿using System.Linq;
+using THSharp.Game.Gamemodes;
 
 namespace THSharp.Game.Screens
 {
@@ -6,7 +7,8 @@ namespace THSharp.Game.Screens
     {
         public PlayerScreen()
         {
-            Child = new GamePlayfield();
+            if (GamemodeStore.LoadedGamemodes.FirstOrDefault() != null)
+                Child = GamemodeStore.LoadedGamemodes.FirstOrDefault()?.GetPlayfield();
         }
     }
 }
