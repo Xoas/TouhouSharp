@@ -4,9 +4,6 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Effects;
 using OpenTK;
 using Symcol.Core.Graphics.Containers;
-using THSharp.Game.Gamemodes.Characters;
-using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
-using THSharp.Game.Gamemodes.Characters.VitaruPlayers.DrawableVitaruPlayers;
 
 namespace THSharp.Game.Gamemodes.Playfield
 {

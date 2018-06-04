@@ -8,7 +8,6 @@ using osu.Framework.Graphics.Shapes;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 using Symcol.Core.Graphics.Sprites;
-using THSharp.Game.Gamemodes.Characters.Pieces;
 using THSharp.Game.Gamemodes.Playfield;
 using THSharp.Game.Graphics;
 
@@ -20,12 +19,10 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         #region Fields
         public readonly C Character;
 
-        protected Seal Seal { get; private set; }
-
-        protected SymcolContainer KiaiContainer { get; set; }
-        protected SymcolSprite KiaiStillSprite { get; set; }
-        protected SymcolSprite KiaiRightSprite { get; set; }
-        protected SymcolSprite KiaiLeftSprite { get; set; }
+        protected SymcolContainer RealityContainer { get; set; }
+        protected SymcolSprite RealityStillSprite { get; set; }
+        protected SymcolSprite RealityRightSprite { get; set; }
+        protected SymcolSprite RealityLeftSprite { get; set; }
 
         protected SymcolContainer SoulContainer { get; set; }
         protected SymcolSprite StillSprite { get; set; }
@@ -74,10 +71,10 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                 LeftSprite.Texture = RightSprite.Texture;
                 LeftSprite.Size = new Vector2(-RightSprite.Size.X, RightSprite.Size.Y);
             }
-            if (KiaiLeftSprite.Texture == null && KiaiRightSprite != null)
+            if (RealityLeftSprite.Texture == null && RealityRightSprite != null)
             {
-                KiaiLeftSprite.Texture = KiaiRightSprite.Texture;
-                KiaiLeftSprite.Size = new Vector2(-KiaiRightSprite.Size.X, KiaiRightSprite.Size.Y);
+                RealityLeftSprite.Texture = RealityRightSprite.Texture;
+                RealityLeftSprite.Size = new Vector2(-RealityRightSprite.Size.X, RealityRightSprite.Size.Y);
             }
             if (Position.X > LastX)
             {
@@ -87,12 +84,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     RightSprite.Alpha = 1;
                 if (StillSprite?.Texture != null)
                     StillSprite.Alpha = 0;
-                if (KiaiLeftSprite?.Texture != null)
-                    KiaiLeftSprite.Alpha = 0;
-                if (KiaiRightSprite?.Texture != null)
-                    KiaiRightSprite.Alpha = 1;
-                if (KiaiStillSprite?.Texture != null)
-                    KiaiStillSprite.Alpha = 0;
+                if (RealityLeftSprite?.Texture != null)
+                    RealityLeftSprite.Alpha = 0;
+                if (RealityRightSprite?.Texture != null)
+                    RealityRightSprite.Alpha = 1;
+                if (RealityStillSprite?.Texture != null)
+                    RealityStillSprite.Alpha = 0;
             }
             else if (Position.X < LastX)
             {
@@ -102,12 +99,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     RightSprite.Alpha = 0;
                 if (StillSprite?.Texture != null)
                     StillSprite.Alpha = 0;
-                if (KiaiLeftSprite?.Texture != null)
-                    KiaiLeftSprite.Alpha = 1;
-                if (KiaiRightSprite?.Texture != null)
-                    KiaiRightSprite.Alpha = 0;
-                if (KiaiStillSprite?.Texture != null)
-                    KiaiStillSprite.Alpha = 0;
+                if (RealityLeftSprite?.Texture != null)
+                    RealityLeftSprite.Alpha = 1;
+                if (RealityRightSprite?.Texture != null)
+                    RealityRightSprite.Alpha = 0;
+                if (RealityStillSprite?.Texture != null)
+                    RealityStillSprite.Alpha = 0;
             }
             else
             {
@@ -117,12 +114,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     RightSprite.Alpha = 0;
                 if (StillSprite?.Texture != null)
                     StillSprite.Alpha = 1;
-                if (KiaiLeftSprite?.Texture != null)
-                    KiaiLeftSprite.Alpha = 0;
-                if (KiaiRightSprite?.Texture != null)
-                    KiaiRightSprite.Alpha = 0;
-                if (KiaiStillSprite?.Texture != null)
-                    KiaiStillSprite.Alpha = 1;
+                if (RealityLeftSprite?.Texture != null)
+                    RealityLeftSprite.Alpha = 0;
+                if (RealityRightSprite?.Texture != null)
+                    RealityRightSprite.Alpha = 0;
+                if (RealityStillSprite?.Texture != null)
+                    RealityStillSprite.Alpha = 1;
             }
             LastX = Position.X;
         }
@@ -135,7 +132,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                 Death();
 
             // ReSharper disable once UnusedVariable
-            foreach (Drawable draw in THSharpPlayfield.GameField.Current)
+            foreach (Drawable draw in THSharpPlayfield)
             {
                 /*
                 DrawableBullet bullet = draw as DrawableBullet;
@@ -184,7 +181,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         protected virtual void LoadAnimationSprites(THSharpSkinElement textures)
         {
             StillSprite.Texture = textures.GetSkinTextureElement(CharacterName);
-            KiaiStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
+            RealityStillSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
         }
 
         /// <summary>
@@ -203,8 +200,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
             AddRange(new Drawable[]
             {
-                Seal = new Seal(this),
-                SoulContainer = new Container
+                SoulContainer = new SymcolContainer
                 {
                     RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,
@@ -213,21 +209,21 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     Alpha = 1,
                     Children = new Drawable[]
                     {
-                        StillSprite = new Sprite
+                        StillSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 1,
                         },
-                        RightSprite = new Sprite
+                        RightSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 0,
                         },
-                        LeftSprite = new Sprite
+                        LeftSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
@@ -236,7 +232,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                         },
                     }
                 },
-                KiaiContainer = new Container
+                RealityContainer = new SymcolContainer
                 {
                     RelativeSizeAxes = Axes.Both,
                     Anchor = Anchor.Centre,
@@ -244,21 +240,21 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     Alpha = 0,
                     Children = new Drawable[]
                     {
-                        KiaiStillSprite = new SymcolSprite
+                        RealityStillSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 1,
                         },
-                        KiaiRightSprite = new SymcolSprite
+                        RealityRightSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 0,
                         },
-                        KiaiLeftSprite = new SymcolSprite
+                        RealityLeftSprite = new SymcolSprite
                         {
                             RelativeSizeAxes = Axes.Both,
                             Anchor = Anchor.Centre,
@@ -294,7 +290,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
             Add(Hitbox = new SymcolHitbox(new Vector2(HitboxWidth)) { Team = Team });
 
             if (CharacterName == "player" || CharacterName == "enemy")
-                KiaiContainer.Colour = PrimaryColor;
+                RealityContainer.Colour = PrimaryColor;
 
             LoadAnimationSprites(textures);
         }

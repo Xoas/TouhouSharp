@@ -35,10 +35,10 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                 LeftSprite.Texture = RightSprite.Texture;
                 LeftSprite.Size = new Vector2(-RightSprite.Size.X, RightSprite.Size.Y);
             }
-            if (KiaiLeftSprite.Texture == null && KiaiRightSprite != null)
+            if (RealityLeftSprite.Texture == null && RealityRightSprite != null)
             {
-                KiaiLeftSprite.Texture = KiaiRightSprite.Texture;
-                KiaiLeftSprite.Size = new Vector2(-KiaiRightSprite.Size.X, KiaiRightSprite.Size.Y);
+                RealityLeftSprite.Texture = RealityRightSprite.Texture;
+                RealityLeftSprite.Size = new Vector2(-RealityRightSprite.Size.X, RealityRightSprite.Size.Y);
             }
             if (Position.X > LastX)
             {
@@ -48,12 +48,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     RightSprite.Alpha = 1;
                 if (StillSprite.Texture != null)
                     StillSprite.Alpha = 0;
-                if (KiaiLeftSprite.Texture != null)
-                    KiaiLeftSprite.Alpha = 0;
-                if (KiaiRightSprite?.Texture != null)
-                    KiaiRightSprite.Alpha = 1;
-                if (KiaiStillSprite.Texture != null)
-                    KiaiStillSprite.Alpha = 0;
+                if (RealityLeftSprite.Texture != null)
+                    RealityLeftSprite.Alpha = 0;
+                if (RealityRightSprite?.Texture != null)
+                    RealityRightSprite.Alpha = 1;
+                if (RealityStillSprite.Texture != null)
+                    RealityStillSprite.Alpha = 0;
             }
             else if (Position.X < LastX)
             {
@@ -63,12 +63,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
                     RightSprite.Alpha = 0;
                 if (StillSprite.Texture != null)
                     StillSprite.Alpha = 0;
-                if (KiaiLeftSprite.Texture != null)
-                    KiaiLeftSprite.Alpha = 1;
-                if (KiaiRightSprite?.Texture != null)
-                    KiaiRightSprite.Alpha = 0;
-                if (KiaiStillSprite.Texture != null)
-                    KiaiStillSprite.Alpha = 0;
+                if (RealityLeftSprite.Texture != null)
+                    RealityLeftSprite.Alpha = 1;
+                if (RealityRightSprite?.Texture != null)
+                    RealityRightSprite.Alpha = 0;
+                if (RealityStillSprite.Texture != null)
+                    RealityStillSprite.Alpha = 0;
             }
             LastX = Position.X;
         }
@@ -77,7 +77,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         {
             base.LoadAnimationSprites(textures);
             RightSprite.Texture = textures.GetSkinTextureElement(CharacterName);
-            KiaiRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
+            RealityRightSprite.Texture = textures.GetSkinTextureElement(CharacterName + "Kiai");
         }
 
         protected override void Death()
