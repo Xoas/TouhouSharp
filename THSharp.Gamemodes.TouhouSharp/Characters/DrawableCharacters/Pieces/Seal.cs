@@ -11,6 +11,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Graphics;
 using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
+using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters;
 
 namespace THSharp.Game.Gamemodes.Characters.Pieces
 {
@@ -28,7 +29,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
         private CircularProgress energy;
 
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
-        private DrawableCharacter character;
+        private DrawableTouhouSharpPlayer character;
 
         private Sprite gear1;
         private Sprite gear2;
@@ -36,7 +37,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
         private Sprite gear4;
         private Sprite gear5;
 
-        public Seal(DrawableCharacter character)
+        public Seal(DrawableTouhouSharpPlayer character)
         {
             this.character = character;
         }
@@ -44,7 +45,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
         [BackgroundDependencyLoader]
         private void load(THSharpSkinElement textures)
         {
-            if (character is DrawablePlayer v)
+            if (character is DrawableTouhouSharpPlayer v)
             {
                 Color4 lightColor = v.PrimaryColor.Lighten(0.5f);
                 Color4 darkColor = v.PrimaryColor.Darken(0.5f);
@@ -173,6 +174,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                     },
                 };
 
+                /*
                 switch (v.Player.FileName)
                 {
                     case "SakuyaIzayoi":
@@ -221,6 +223,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         };
                         break;
                 }
+                */
             }
             else
             {
@@ -259,7 +262,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
             base.Update();
 
             Sign.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 0.1f);
-
+            /*
             if (character is DrawableTHSharpPlayer v)
             {
                 if (v is DrawableTouhosuPlayer t)
@@ -285,6 +288,7 @@ namespace THSharp.Game.Gamemodes.Characters.Pieces
                         break;
                 }
             }
+            */
         }
     }
 }

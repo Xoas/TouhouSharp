@@ -31,7 +31,7 @@ namespace THSharp.Game.Gamemodes
         public static void ReloadGamemodes()
         {
             foreach (Gamemode g in LoadedGamemodes)
-                OnGamemodeRemoved(g);
+                OnGamemodeRemoved?.Invoke(g);
 
             LoadedGamemodes = new List<Gamemode>();
 
@@ -60,14 +60,14 @@ namespace THSharp.Game.Gamemodes
             foreach (Gamemode g in instances.Where(g => g.OfficialID != null).OrderBy(g => g.OfficialID))
             {
                 LoadedGamemodes.Add(g);
-                OnGamemodeAdd(g);
+                OnGamemodeAdd?.Invoke(g);
             }
 
             //add any other modes
             foreach (Gamemode g in instances.Where(g => g.OfficialID == null))
             {
                 LoadedGamemodes.Add(g);
-                OnGamemodeAdd(g);
+                OnGamemodeAdd?.Invoke(g);
             }
         }
     }
