@@ -28,7 +28,7 @@ namespace touhou.sharp.Game.Gameplay.Playfield
         {
             base.Update();
 
-            GameField.Scale = new Vector2(DrawSize.Y * 10f / 16f / GameField.Size.X, DrawSize.Y / GameField.Size.Y) * 0.9f;
+            GameField.Scale = new Vector2(DrawSize.Y * 10f / 16f / GameField.Size.X, DrawSize.Y / GameField.Size.Y) * 0.8f;
         }
     }
 }
