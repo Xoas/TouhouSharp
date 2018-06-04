@@ -1,6 +1,6 @@
 ﻿using osu.Framework;
 using osu.Framework.Platform;
-using touhou.sharp.Game;
+using THSharp.Game;
 
 namespace THSharp.Desktop
 {

@@ -11,7 +11,7 @@ namespace THSharp.Game
 
         protected THSharpSkinElement THSharpSkinElement;
 
-        protected override string MainResourceFile => "touhou.sharp.Game.Resources.dll";
+        protected override string MainResourceFile => "THSharp.Game.Resources.dll";
 
         private DependencyContainer dependencies;
 

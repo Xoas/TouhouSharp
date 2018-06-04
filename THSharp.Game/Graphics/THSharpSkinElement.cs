@@ -34,8 +34,8 @@ namespace THSharp.Game.Graphics
             if (thSharpResources == null)
             {
                 thSharpResources = new ResourceStore<byte[]>();
-                thSharpResources.AddStore(new NamespacedResourceStore<byte[]>(new DllResourceStore("touhou.sharp.Game.Resources.dll"), "Assets"));
-                thSharpResources.AddStore(new DllResourceStore("touhou.sharp.Game.Resources.dll"));
+                thSharpResources.AddStore(new NamespacedResourceStore<byte[]>(new DllResourceStore("THSharp.Game.Resources.dll"), "Assets"));
+                thSharpResources.AddStore(new DllResourceStore("THSharp.Game.Resources.dll"));
                 thSharpTextures = new TextureStore(new RawTextureLoaderStore(new NamespacedResourceStore<byte[]>(thSharpResources, @"Textures")));
                 thSharpTextures.AddStore(new RawTextureLoaderStore(new OnlineStore()));
 

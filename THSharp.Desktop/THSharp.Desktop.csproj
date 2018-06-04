@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\touhou.sharp.Game.props" />
   <PropertyGroup Label="Project">
     <TargetFrameworks>net471;netcoreapp2.0</TargetFrameworks>
@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
     <ProjectReference Include="..\Symcol.Core\Symcol.Core.csproj" />
-    <ProjectReference Include="..\touhou.sharp.Game.Resources\THSharp.Game.Resources.csproj" />
-    <ProjectReference Include="..\touhou.sharp.Game\THSharp.Game.csproj" />
+    <ProjectReference Include="..\THSharp.Game.Resources\THSharp.Game.Resources.csproj" />
+    <ProjectReference Include="..\THSharp.Game\THSharp.Game.csproj" />
   </ItemGroup>
 </Project>
