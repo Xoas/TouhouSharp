@@ -24,6 +24,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 
         protected readonly SymcolContainer Cursor;
 
+        protected double LastX;
+
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public double Energy { get; private set; }
 
