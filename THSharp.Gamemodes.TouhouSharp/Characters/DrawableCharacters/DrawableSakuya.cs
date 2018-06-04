@@ -10,9 +10,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public double SetRate { get; private set; }
 
-        protected AnimatedSprite Idle;
-        protected AnimatedSprite Left;
-        protected AnimatedSprite Right;
+        private AnimatedSprite idle;
+        private AnimatedSprite left;
+        private AnimatedSprite right;
 
         public DrawableSakuya(TouhouSharpPlayfield playfield)
             : base(new Sakuya(), playfield)
@@ -33,7 +33,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
             RealityContainer.AddRange(new Drawable[]
             {
                 //TODO: rename "Kiai" files to "Reality"
-                Idle = new AnimatedSprite
+                idle = new AnimatedSprite
                 {
                     RelativeSizeAxes = Axes.Both,
                     UpdateRate = 100,
@@ -49,7 +49,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
                         textures.GetSkinTextureElement(Character.Name + " Kiai 7"),
                     }
                 },
-                Left = new AnimatedSprite
+                left = new AnimatedSprite
                 {
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
@@ -66,7 +66,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
                         textures.GetSkinTextureElement(Character.Name + " Kiai Left 7"),
                     }
                 },
-                Right = new AnimatedSprite
+                right = new AnimatedSprite
                 {
                     Alpha = 0,
                     RelativeSizeAxes = Axes.Both,
@@ -90,26 +90,26 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         {
             base.MovementAnimations();
 
-            if (Position.X > LastX && Right.Alpha < 1)
+            if (Position.X > LastX && right.Alpha < 1)
             {
-                Idle.Alpha = 0;
-                Left.Alpha = 0;
-                Right.Alpha = 1;
-                Right.Reset();
+                idle.Alpha = 0;
+                left.Alpha = 0;
+                right.Alpha = 1;
+                right.Reset();
             }
-            else if (Position.X < LastX && Left.Alpha < 1)
+            else if (Position.X < LastX && left.Alpha < 1)
             {
-                Idle.Alpha = 0;
-                Left.Alpha = 1;
-                Right.Alpha = 0;
-                Left.Reset();
+                idle.Alpha = 0;
+                left.Alpha = 1;
+                right.Alpha = 0;
+                left.Reset();
             }
-            else if (Position.X == LastX && Idle.Alpha < 1)
+            else if (Position.X == LastX && idle.Alpha < 1)
             {
-                Idle.Alpha = 1;
-                Left.Alpha = 0;
-                Right.Alpha = 0;
-                Idle.Reset();
+                idle.Alpha = 1;
+                left.Alpha = 0;
+                right.Alpha = 0;
+                idle.Reset();
             }
 
             LastX = Position.X;

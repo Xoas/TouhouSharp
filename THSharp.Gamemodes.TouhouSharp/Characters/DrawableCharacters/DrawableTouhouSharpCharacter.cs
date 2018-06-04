@@ -32,6 +32,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
             : base(c, playfield)
         {
             TouhouSharpPlayfield = playfield;
+
+            Anchor = Anchor.TopLeft;
+            Origin = Anchor.Centre;
         }
 
         protected override void LoadAnimationSprites(THSharpSkinElement textures)

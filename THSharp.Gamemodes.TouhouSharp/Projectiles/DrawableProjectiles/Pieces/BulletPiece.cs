@@ -9,6 +9,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces
     {
         public BulletPiece(DrawableBullet drawableBullet)
         {
+            Anchor = Anchor.Centre;
+            Origin = Anchor.Centre;
+
             Size = drawableBullet.Projectile.Size;
 
             Masking = true;
