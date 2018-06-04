@@ -11,6 +11,7 @@ namespace touhou.sharp.Game.Screens
     {
         public HomeScreen()
         {
+            SymcolClickableContainer editorButton;
             Children = new Drawable[]
             {
                 new Box
@@ -27,7 +28,7 @@ namespace touhou.sharp.Game.Screens
                     TextSize = 24,
                     Text = "There is no game yet, check back later!"
                 },
-                new SymcolClickableContainer
+                editorButton = new SymcolClickableContainer
                 {
                     Anchor = Anchor.BottomRight,
                     Origin = Anchor.BottomRight,
@@ -39,7 +40,6 @@ namespace touhou.sharp.Game.Screens
 
                     CornerRadius = 16, 
                     BorderThickness = 4,
-                    Action = () => Push(new EditorScreen()),
 
                     Children = new Drawable[]
                     {
@@ -58,40 +58,10 @@ namespace touhou.sharp.Game.Screens
                             Text = "Editor"
                         }
                     }
-                },
-                new SymcolClickableContainer
-                {
-                    Anchor = Anchor.BottomLeft,
-                    Origin = Anchor.BottomLeft,
-                    Masking = true,
-
-                    RelativeSizeAxes = Axes.Both,
-                    Size = new Vector2(0.12f, 0.08f),
-                    Position = new Vector2(10, -10),
-
-                    CornerRadius = 16,
-                    BorderThickness = 4,
-                    Action = () => Push(new PlayerScreen()),
-
-                    Children = new Drawable[]
-                    {
-                        new Box
-                        {
-                            Colour = Color4.Red,
-                            RelativeSizeAxes = Axes.Both
-                        },
-                        new SpriteText
-                        {
-                            Anchor = Anchor.Centre,
-                            Origin = Anchor.Centre,
-
-                            Colour = Color4.White,
-                            TextSize = 24,
-                            Text = "Player"
-                        }
-                    }
                 }
             };
+
+            editorButton.Action = () => Push(new EditorScreen());
         }
     }
 }

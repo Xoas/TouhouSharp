@@ -5,7 +5,6 @@ using osu.Framework.Graphics.Effects;
 using OpenTK;
 using Symcol.Core.Graphics.Containers;
 using touhou.sharp.Game.Gameplay.Characters;
-using touhou.sharp.Game.Gameplay.Characters.TouhosuPlayers.DrawableTouhosuPlayers;
 using touhou.sharp.Game.Gameplay.Characters.VitaruPlayers.DrawableVitaruPlayers;
 
 namespace touhou.sharp.Game.Gameplay.Playfield
@@ -48,7 +47,7 @@ namespace touhou.sharp.Game.Gameplay.Playfield
                     BlurSigma = new Vector2(4)
                 }),
                 Current
-            };            
+            };
 
             AbstractionLevel.ValueChanged += value =>
             {
