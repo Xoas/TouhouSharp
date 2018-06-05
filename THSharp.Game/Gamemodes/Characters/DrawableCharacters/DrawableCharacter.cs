@@ -71,7 +71,14 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         /// <summary>
         /// Called once for every bullet per frame
         /// </summary>
-        protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile) { }
+        protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile)
+        {
+            if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
+            {
+                Hurt(drawableProjectile.Projectile.Damage);
+                drawableProjectile.Delete();
+            }
+        }
 
         /// <summary>
         /// Removes "damage"
