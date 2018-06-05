@@ -18,7 +18,6 @@ namespace THSharp.Game.Graphics.UI
             Origin = Anchor.Centre;
             Size = new Vector2(32);
             Masking = false;
-            Depth = float.MinValue;
         }
 
         [BackgroundDependencyLoader]

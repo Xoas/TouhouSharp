@@ -2,6 +2,7 @@
 using OpenTK.Input;
 using THSharp.Game.Gamemodes;
 using THSharp.Game.Graphics.UI;
+using THSharp.Game.Graphics.UI.Toolbar;
 using THSharp.Game.Screens;
 
 namespace THSharp.Game
@@ -14,14 +15,15 @@ namespace THSharp.Game
         {
             base.LoadComplete();
 
-            var homeScreen = new HomeScreen();
+            GamemodeStore.ReloadGamemodes(THSharpSkinElement, Host.Storage);
 
-            Add(THSharpCursor = new THSharpCursor());
+            HomeScreen homeScreen = new HomeScreen();
+
             Add(homeScreen);
+            Add(new Toolbar());
+            Add(THSharpCursor = new THSharpCursor());
 
             homeScreen.Exited += _ => Scheduler.AddDelayed(Exit, 500);
-
-            GamemodeStore.ReloadGamemodes(THSharpSkinElement, Host.Storage);
         }
 
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)

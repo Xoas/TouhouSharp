@@ -14,12 +14,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Playfield
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
             RelativeSizeAxes = Axes.Both;
-            Name = "GamePlayfield";
+            Name = "TouhouSharpPlayfield";
 
-            Child = GameField = new AbstractionField
-            {
-                Size = new Vector2(512, 820)
-            };
+            Add(GameField = new AbstractionField { Size = new Vector2(512, 820) });
 
             GameField.Current.Add(new DrawableSakuya(this));
         }
