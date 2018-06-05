@@ -35,9 +35,20 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         }
 
         /// <summary>
-        /// Does animations to better give the illusion of movement (could likely be cleaned up)
+        /// Child loading for all Characters (Enemies, Player, Bosses)
         /// </summary>
-        protected virtual void MovementAnimations() { }
+        [BackgroundDependencyLoader]
+        private void load(THSharpSkinElement textures)
+        {
+            Health = Character.MaxHealth;
+            LoadAnimationSprites(textures);
+        }
+
+        /// <summary>
+        /// Can be used to load custom character sprites
+        /// </summary>
+        /// <param name="textures"></param>
+        protected virtual void LoadAnimationSprites(THSharpSkinElement textures) { }
 
         protected override void Update()
         {
@@ -47,28 +58,20 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
             foreach (Drawable draw in GamemodePlayfield)
             {
-                DrawableProjectile<Projectile> drawableProjectile = draw as DrawableProjectile<Projectile>;
-                if (drawableProjectile?.Hitbox != null)
+                if (draw is DrawableProjectile<Projectile> drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
             }            
         }
 
         /// <summary>
+        /// Does animations to better give the illusion of movement (could likely be cleaned up)
+        /// </summary>
+        protected virtual void MovementAnimations() { }
+
+        /// <summary>
         /// Called once for every bullet per frame
         /// </summary>
         protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile) { }
-
-        protected virtual void LoadAnimationSprites(THSharpSkinElement textures) { }
-
-        /// <summary>
-        /// Child loading for all Characters (Enemies, Player, Bosses)
-        /// </summary>
-        [BackgroundDependencyLoader]
-        private void load(THSharpSkinElement textures)
-        {
-            Health = Character.MaxHealth;
-            LoadAnimationSprites(textures);
-        }
 
         /// <summary>
         /// Removes "damage"
