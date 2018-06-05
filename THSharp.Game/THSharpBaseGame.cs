@@ -29,6 +29,8 @@ namespace THSharp.Game
             dependencies.Cache(this);
             dependencies.Cache(THSharpConfigManager);
             dependencies.Cache(THSharpSkinElement);
+
+            Window.CursorState = CursorState.Hidden;
         }
 
         public override void SetHost(GameHost host)
