@@ -32,7 +32,7 @@ namespace THSharp.Game.Gamemodes
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static Gamemode GetSelectedGamemode(string name)
+        public static Gamemode GetGamemode(string name)
         {
             foreach (Gamemode gamemode in LoadedGamemodes)
                 if (gamemode.Name == name)
@@ -45,7 +45,7 @@ namespace THSharp.Game.Gamemodes
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static Gamemode GetWorkingGamemode(string name)
+        public static Gamemode GetWorkingGamemode(string name = "")
         {
             foreach (Gamemode gamemode in LoadedGamemodes)
                 if (gamemode.Name == name)

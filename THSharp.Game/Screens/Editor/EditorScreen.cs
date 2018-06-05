@@ -17,7 +17,7 @@ namespace THSharp.Game.Screens.Editor
         [BackgroundDependencyLoader]
         private void load(THSharpConfigManager config)
         {
-            Gamemode g = GamemodeStore.GetSelectedGamemode(config.Get<string>(THSharpSetting.Gamemode));
+            Gamemode g = GamemodeStore.GetGamemode(config.Get<string>(THSharpSetting.Gamemode));
 
             Children = new Drawable[]
             {
