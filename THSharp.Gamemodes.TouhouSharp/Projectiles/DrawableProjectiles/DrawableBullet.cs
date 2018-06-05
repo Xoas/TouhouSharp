@@ -8,6 +8,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
 {
     public class DrawableBullet : DrawableProjectile<Bullet>
     {
+        public override bool HandleMouseInput => false;
+        public override bool HandleKeyboardInput => false;
+
         //TODO: Make everything in the playfield use one of these
         public Vector4 BulletBounds = new Vector4(-10, -10, 520, 830);
 
