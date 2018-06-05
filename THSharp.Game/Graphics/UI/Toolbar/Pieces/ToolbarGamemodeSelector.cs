@@ -47,7 +47,7 @@ namespace THSharp.Game.Graphics.UI.Toolbar.Pieces
                 gamemodeContainer.Add(icon);
             }
 
-            GamemodeStore.OnGamemodeAdd += gamemode =>
+            GamemodeStore.OnGamemodeRemoved += gamemode =>
             {
                 foreach (GamemodeIcon icon in gamemodeContainer)
                     if (icon.Gamemode.Name == gamemode.Name)
@@ -56,10 +56,12 @@ namespace THSharp.Game.Graphics.UI.Toolbar.Pieces
 
                         if (icon.Gamemode.Name == config.Get<string>(THSharpSetting.Gamemode))
                             gamemodeContainer.FirstOrDefault()?.Action?.Invoke();
+
+                        break;
                     }
             };
 
-            GamemodeStore.OnGamemodeRemoved += gamemode =>
+            GamemodeStore.OnGamemodeAdd += gamemode =>
             {
                 GamemodeIcon icon = new GamemodeIcon(gamemode);
                 icon.Action = () =>
