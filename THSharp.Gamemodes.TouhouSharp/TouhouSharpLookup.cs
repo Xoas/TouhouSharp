@@ -1,5 +1,8 @@
-﻿using THSharp.Game.Gamemodes;
+﻿using osu.Framework.Graphics.Textures;
+using osu.Framework.Platform;
+using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Playfield;
+using THSharp.Game.Graphics;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 
 namespace THSharp.Gamemodes.TouhouSharp
@@ -10,6 +13,17 @@ namespace THSharp.Gamemodes.TouhouSharp
 
         public override string Name => "TouhouSharp";
 
+        private Texture icon;
+
+        public override Texture Icon => icon;
+
         public override int? OfficialID => 0;
+
+        public override void LoadDependencies(THSharpSkinElement textures, Storage storage)
+        {
+            base.LoadDependencies(textures, storage);
+
+            icon = textures.GetSkinTextureElement("icon", true);
+        }
     }
 }

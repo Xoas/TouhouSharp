@@ -1,9 +1,11 @@
 ﻿using osu.Framework.Graphics;
+using OpenTK;
 using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Graphics;
+using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
+namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
 {
     public class DrawableSakuya : DrawableTouhouSharpPlayer<Sakuya>
     {
@@ -17,6 +19,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         public DrawableSakuya(TouhouSharpPlayfield playfield)
             : base(new Sakuya(), playfield)
         {
+            Position = new Vector2(256, 700);
         }
 
         protected override void LoadAnimationSprites(THSharpSkinElement textures)

@@ -7,6 +7,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces
 {
     public class BulletPiece : SymcolCircularContainer
     {
+        public override bool HandleMouseInput => false;
+        public override bool HandleKeyboardInput => false;
+
         public BulletPiece(DrawableBullet drawableBullet)
         {
             Anchor = Anchor.Centre;

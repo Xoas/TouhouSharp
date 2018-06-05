@@ -8,6 +8,7 @@ using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
 using THSharp.Game.Graphics;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
+using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 {
@@ -129,6 +130,21 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
                     }
                 }
             });
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            foreach (Drawable draw in TouhouSharpPlayfield.GameField.Current)
+            {
+                if (draw is DrawableBullet drawableProjectile && drawableProjectile.Hitbox != null)
+                    if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
+                    {
+                        Hurt(drawableProjectile.Projectile.Damage);
+                        drawableProjectile.Expire();
+                    }
+            }
         }
     }
 }

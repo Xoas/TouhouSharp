@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using osu.Framework.Platform;
+using THSharp.Game.Graphics;
 
 namespace THSharp.Game.Gamemodes
 {
@@ -25,11 +27,37 @@ namespace THSharp.Game.Gamemodes
         /// </summary>
         public static Action<Gamemode> OnGamemodeRemoved;
 
+        /// <summary>
+        /// Will try and find the specified gamemode by name, if it is not found return null
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Gamemode GetSelectedGamemode(string name)
+        {
+            foreach (Gamemode gamemode in LoadedGamemodes)
+                if (gamemode.Name == name)
+                    return gamemode;
+            return null;
+        }
+
+        /// <summary>
+        /// Will try and find the specified gamemode by name, if it is not found return one from the list of loaded gamemodes
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Gamemode GetWorkingGamemode(string name)
+        {
+            foreach (Gamemode gamemode in LoadedGamemodes)
+                if (gamemode.Name == name)
+                    return gamemode;
+            return LoadedGamemodes.FirstOrDefault();
+        }
+
         private static Dictionary<Assembly, Type> loadedAssemblies = new Dictionary<Assembly, Type>();
 
         private const string gamemode_prefix = "THSharp.Gamemodes";
 
-        public static void ReloadGamemodes()
+        public static void ReloadGamemodes(THSharpSkinElement textures, Storage storage)
         {
             foreach (Gamemode g in LoadedGamemodes)
                 OnGamemodeRemoved?.Invoke(g);
@@ -63,6 +91,7 @@ namespace THSharp.Game.Gamemodes
             {
                 Logger.Log("Successfully loaded official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
+                g.LoadDependencies(textures, storage);
                 OnGamemodeAdd?.Invoke(g);
             }
 
@@ -71,6 +100,7 @@ namespace THSharp.Game.Gamemodes
             {
                 Logger.Log("Successfully loaded un-official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
+                g.LoadDependencies(textures, storage);
                 OnGamemodeAdd?.Invoke(g);
             }
         }

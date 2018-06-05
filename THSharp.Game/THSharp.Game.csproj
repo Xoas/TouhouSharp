@@ -9,16 +9,19 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Gameplay\**" />
+    <Compile Remove="Networking\**" />
+    <EmbeddedResource Remove="Gameplay\**" />
+    <EmbeddedResource Remove="Networking\**" />
+    <None Remove="Gameplay\**" />
+    <None Remove="Networking\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
     <ProjectReference Include="..\Symcol.Core\Symcol.Core.csproj" />
     <ProjectReference Include="..\THSharp.Game.Resources\THSharp.Game.Resources.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Gameplay\Multi\" />
-    <Folder Include="Gameplay\Single\" />
-    <Folder Include="Networking\" />
   </ItemGroup>
 </Project>

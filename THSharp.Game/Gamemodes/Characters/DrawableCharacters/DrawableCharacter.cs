@@ -35,9 +35,20 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         }
 
         /// <summary>
-        /// Does animations to better give the illusion of movement (could likely be cleaned up)
+        /// Child loading for all Characters (Enemies, Player, Bosses)
         /// </summary>
-        protected virtual void MovementAnimations() { }
+        [BackgroundDependencyLoader]
+        private void load(THSharpSkinElement textures)
+        {
+            Health = Character.MaxHealth;
+            LoadAnimationSprites(textures);
+        }
+
+        /// <summary>
+        /// Can be used to load custom character sprites
+        /// </summary>
+        /// <param name="textures"></param>
+        protected virtual void LoadAnimationSprites(THSharpSkinElement textures) { }
 
         protected override void Update()
         {
@@ -47,27 +58,26 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
             foreach (Drawable draw in GamemodePlayfield)
             {
-                DrawableProjectile<Projectile> drawableProjectile = draw as DrawableProjectile<Projectile>;
-                if (drawableProjectile?.Hitbox != null)
+                if (draw is DrawableProjectile<Projectile> drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
             }            
         }
 
         /// <summary>
-        /// Called once for every bullet per frame
+        /// Does animations to better give the illusion of movement (could likely be cleaned up)
         /// </summary>
-        protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile) { }
-
-        protected virtual void LoadAnimationSprites(THSharpSkinElement textures) { }
+        protected virtual void MovementAnimations() { }
 
         /// <summary>
-        /// Child loading for all Characters (Enemies, Player, Bosses)
+        /// Called once for every bullet per frame
         /// </summary>
-        [BackgroundDependencyLoader]
-        private void load(THSharpSkinElement textures)
+        protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile)
         {
-            Health = Character.MaxHealth;
-            LoadAnimationSprites(textures);
+            if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
+            {
+                Hurt(drawableProjectile.Projectile.Damage);
+                drawableProjectile.Delete();
+            }
         }
 
         /// <summary>
@@ -107,7 +117,6 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         protected virtual void Death()
         {
             Dead = true;
-            Delete();
         }
 
         protected virtual void Revive()
