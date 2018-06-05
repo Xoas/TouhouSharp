@@ -4,7 +4,6 @@ using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Gamemodes.Playfield;
-using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters;
 using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
