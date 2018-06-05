@@ -10,6 +10,7 @@ using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Graphics;
+using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
 using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces

@@ -5,7 +5,7 @@ using THSharp.Game.Graphics;
 using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
+namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
 {
     public class DrawableSakuya : DrawableTouhouSharpPlayer<Sakuya>
     {

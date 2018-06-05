@@ -12,7 +12,7 @@ using THSharp.Gamemodes.TouhouSharp.Playfield;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
+namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
 {
     public abstract class DrawableTouhouSharpPlayer<P> : DrawableTouhouSharpCharacter<P>
         where P : TouhouSharpPlayer
