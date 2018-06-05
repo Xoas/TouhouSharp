@@ -4,6 +4,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
+using osu.Framework.Input;
 using OpenTK;
 
 namespace THSharp.Game.Graphics.UI
@@ -17,6 +18,7 @@ namespace THSharp.Game.Graphics.UI
             Origin = Anchor.Centre;
             Size = new Vector2(32);
             Masking = false;
+            Depth = float.MinValue;
         }
 
         [BackgroundDependencyLoader]
@@ -169,6 +171,12 @@ namespace THSharp.Game.Graphics.UI
                     }
                 }
             };
+        }
+
+        protected override bool OnMouseMove(InputState state)
+        {
+            Position = state.Mouse.Position;
+            return base.OnMouseMove(state);
         }
     }
 }

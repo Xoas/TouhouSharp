@@ -5,6 +5,7 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
+using THSharp.Game.Graphics.UI;
 using THSharp.Game.NeuralNetworking;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
@@ -74,7 +75,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
                 lastShootTime = Time.Current;
             }
 
-            //Cursor.Position = VitaruCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
+            Cursor.Position = THSharpCursor.CenterCircle.ToSpaceOfOtherDrawable(Vector2.Zero, Parent) + new Vector2(6);
         }
 
         protected virtual Vector2 GetNewPlayerPosition(double playerSpeed)
