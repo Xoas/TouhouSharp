@@ -1,4 +1,4 @@
-﻿namespace THSharp.Gamemodes.TouhouSharp.Characters
+﻿namespace THSharp.Gamemodes.TouhouSharp.Characters.Players
 {
     public class Sakuya : TouhouSharpPlayer
     {

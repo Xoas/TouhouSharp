@@ -2,6 +2,7 @@
 using OpenTK;
 using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Graphics;
+using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters

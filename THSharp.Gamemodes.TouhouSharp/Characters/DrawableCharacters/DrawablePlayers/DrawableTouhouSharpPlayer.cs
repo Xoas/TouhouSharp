@@ -7,6 +7,7 @@ using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Graphics.UI;
 using THSharp.Game.NeuralNetworking;
+using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;

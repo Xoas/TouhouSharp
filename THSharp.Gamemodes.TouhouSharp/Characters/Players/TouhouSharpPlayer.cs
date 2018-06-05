@@ -1,6 +1,6 @@
 ﻿using OpenTK;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters
+namespace THSharp.Gamemodes.TouhouSharp.Characters.Players
 {
     public abstract class TouhouSharpPlayer : TouhouSharpCharacter
     {
