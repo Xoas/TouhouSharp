@@ -138,7 +138,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         {
             base.Update();
 
-            foreach (Drawable draw in GamemodePlayfield)
+            foreach (Drawable draw in TouhouSharpPlayfield.GameField.Current)
                 if (draw is DrawableProjectile drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
         }

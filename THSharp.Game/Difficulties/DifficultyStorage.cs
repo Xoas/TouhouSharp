@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using osu.Framework.Logging;
 using osu.Framework.Platform;
 
 namespace THSharp.Game.Difficulties
@@ -16,8 +17,15 @@ namespace THSharp.Game.Difficulties
 
         public DifficultyStorage(Storage storage)
         {
-            DifficultyStorage.storage = storage.GetStorageForDirectory(difficulty_storage_directory);
-            ReloadDifficulties();
+            try
+            {
+                DifficultyStorage.storage = storage.GetStorageForDirectory(difficulty_storage_directory);
+                ReloadDifficulties();
+            }
+            catch
+            {
+                Logger.Log("There is no difficulties directory!", LoggingTarget.Database, LogLevel.Error);
+            }
         }
 
         public static void ReloadDifficulties()
