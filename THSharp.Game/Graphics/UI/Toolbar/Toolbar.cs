@@ -9,7 +9,9 @@ namespace THSharp.Game.Graphics.UI.Toolbar
 {
     public class Toolbar : SymcolContainer
     {
+        // ReSharper disable once NotAccessedField.Local
         private readonly FillFlowContainer<ToolbarPiece> rightSection;
+        // ReSharper disable once NotAccessedField.Local
         private readonly FillFlowContainer<ToolbarPiece> leftSection;
 
         public Toolbar()
