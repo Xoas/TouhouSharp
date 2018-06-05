@@ -9,8 +9,8 @@ namespace THSharp.Game.Graphics.UI.Toolbar
 {
     public class Toolbar : SymcolContainer
     {
-        protected readonly FillFlowContainer<ToolbarPiece> RightSection;
-        protected readonly FillFlowContainer<ToolbarPiece> LeftSection;
+        private readonly FillFlowContainer<ToolbarPiece> rightSection;
+        private readonly FillFlowContainer<ToolbarPiece> leftSection;
 
         public Toolbar()
         {
@@ -28,11 +28,23 @@ namespace THSharp.Game.Graphics.UI.Toolbar
                     Colour = Color4.Black,
                     Alpha = 0.8f
                 },
-                new FillFlowContainer
+                rightSection = new FillFlowContainer<ToolbarPiece>
                 {
-
+                    RelativeSizeAxes = Axes.Both,
+                    Width = 0.4f,
+                    Anchor = Anchor.CentreRight,
+                    Origin = Anchor.CentreRight,
+                    Direction = FillDirection.Horizontal
                 },
-
+                leftSection = new FillFlowContainer<ToolbarPiece>
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Width = 0.4f,
+                    Anchor = Anchor.CentreLeft,
+                    Origin = Anchor.CentreLeft,
+                    Direction = FillDirection.Horizontal
+                },
+                new ToolbarGamemodeSelector()
             };
         }
     }

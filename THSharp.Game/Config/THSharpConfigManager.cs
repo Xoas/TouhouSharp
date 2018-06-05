@@ -13,7 +13,7 @@ namespace THSharp.Game.Config
 
         protected override void InitialiseDefaults()
         {
-            Set(THSharpSetting.Gamemode, Gamemodes.TouhouSharp);
+            Set(THSharpSetting.Gamemode, "None");
 
             Set(THSharpSetting.Graphics, Graphics.TouhouSharp);
 
@@ -48,13 +48,6 @@ namespace THSharp.Game.Config
 
         HostPort,
         LocalPort
-    }
-
-    //TODO: Move this / delete this?
-    public enum Gamemodes
-    {
-        TouhouSharp,
-        TouhouClassic
     }
 
     //TODO: Move this?
