@@ -34,6 +34,8 @@ namespace osu.Framework.Platform
 
         public override string[] GetDirectories(string path) => Directory.GetDirectories(GetUsablePathFor(path));
 
+        public override string[] GetFiles(string path) => Directory.GetFiles(GetUsablePathFor(path));
+
         public override void OpenInNativeExplorer()
         {
             Process.Start(GetUsablePathFor(string.Empty));
