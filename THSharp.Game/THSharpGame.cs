@@ -21,13 +21,13 @@ namespace THSharp.Game
 
             homeScreen.Exited += _ => Scheduler.AddDelayed(Exit, 500);
 
-            GamemodeStore.ReloadGamemodes();
+            GamemodeStore.ReloadGamemodes(THSharpSkinElement, Host.Storage);
         }
 
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
         {
             if (!args.Repeat && args.Key == Key.F5)
-                GamemodeStore.ReloadGamemodes();
+                GamemodeStore.ReloadGamemodes(THSharpSkinElement, Host.Storage);
 
             return base.OnKeyDown(state, args);
         }

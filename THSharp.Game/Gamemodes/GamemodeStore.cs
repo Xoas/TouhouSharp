@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using osu.Framework.Platform;
+using THSharp.Game.Graphics;
 
 namespace THSharp.Game.Gamemodes
 {
@@ -29,7 +31,7 @@ namespace THSharp.Game.Gamemodes
 
         private const string gamemode_prefix = "THSharp.Gamemodes";
 
-        public static void ReloadGamemodes()
+        public static void ReloadGamemodes(THSharpSkinElement textures, Storage storage)
         {
             foreach (Gamemode g in LoadedGamemodes)
                 OnGamemodeRemoved?.Invoke(g);
@@ -63,6 +65,7 @@ namespace THSharp.Game.Gamemodes
             {
                 Logger.Log("Successfully loaded official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
+                g.LoadDependencies(textures, storage);
                 OnGamemodeAdd?.Invoke(g);
             }
 
@@ -71,6 +74,7 @@ namespace THSharp.Game.Gamemodes
             {
                 Logger.Log("Successfully loaded un-official gamemode: " + g.Name);
                 LoadedGamemodes.Add(g);
+                g.LoadDependencies(textures, storage);
                 OnGamemodeAdd?.Invoke(g);
             }
         }

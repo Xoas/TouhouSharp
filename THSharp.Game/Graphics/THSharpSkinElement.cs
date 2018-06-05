@@ -53,17 +53,19 @@ namespace THSharp.Game.Graphics
 
         /// <summary>
         /// Will attempt to get a skin element fron the skin, if no element is found return the default element
+        /// Can be forced to get a native texture if you dont want it skinable
         /// </summary>
         /// <param name="fileName"></param>
+        /// <param name="forceNative"></param>
         /// <returns></returns>
-        public Texture GetSkinTextureElement(string fileName)
+        public Texture GetSkinTextureElement(string fileName, bool forceNative = false)
         {
             Texture texture = null;
 
             string skin = config.GetBindable<string>(THSharpSetting.Skin);
             Storage skinStorage = storage.GetStorageForDirectory("Skins\\" + skin);
 
-            if (skin == "Default")
+            if (skin == "Default" || forceNative)
             {
                 texture = thSharpTextures.Get(fileName + ".png");
                 return texture;
@@ -91,7 +93,7 @@ namespace THSharp.Game.Graphics
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public Texture GetTextureElement(string fileName)
+        public Texture TryGetTextureElement(string fileName)
         {
             Texture texture = null;
 
