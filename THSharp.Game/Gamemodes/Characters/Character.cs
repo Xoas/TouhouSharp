@@ -1,5 +1,6 @@
 ﻿using OpenTK;
 using OpenTK.Graphics;
+using Symcol.Core.GameObjects;
 
 namespace THSharp.Game.Gamemodes.Characters
 {
@@ -13,6 +14,8 @@ namespace THSharp.Game.Gamemodes.Characters
         public virtual int Team => 0;
 
         public virtual Vector2 Size => new Vector2(32);
+
+        public virtual Shape HitboxShape => Shape.Circle;
 
         public virtual double HitboxWidth => 10;
 

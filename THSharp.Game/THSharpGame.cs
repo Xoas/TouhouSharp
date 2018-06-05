@@ -11,6 +11,8 @@ namespace THSharp.Game
     {
         public static THSharpCursor THSharpCursor;
 
+        public static Toolbar Toolbar;
+
         protected override void LoadComplete()
         {
             base.LoadComplete();
@@ -20,7 +22,7 @@ namespace THSharp.Game
             HomeScreen homeScreen = new HomeScreen();
 
             Add(homeScreen);
-            Add(new Toolbar());
+            Add(Toolbar = new Toolbar());
             Add(THSharpCursor = new THSharpCursor());
 
             homeScreen.Exited += _ => Scheduler.AddDelayed(Exit, 500);

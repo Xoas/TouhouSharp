@@ -31,7 +31,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
             GamemodePlayfield = playfield;
 
             Size = c.Size;
-            Add(Hitbox = new SymcolHitbox(new Vector2((float)c.HitboxWidth)));
+            Add(Hitbox = new SymcolHitbox(new Vector2((float)c.HitboxWidth), c.HitboxShape));
         }
 
         /// <summary>

@@ -4,6 +4,8 @@ using osu.Framework.Graphics.Sprites;
 using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
+using THSharp.Game.Screens.Editor;
+using THSharp.Game.Screens.Gameplay;
 
 namespace THSharp.Game.Screens
 {
@@ -71,7 +73,7 @@ namespace THSharp.Game.Screens
 
                     CornerRadius = 16,
                     BorderThickness = 4,
-                    Action = () => Push(new PlayerScreen()),
+                    Action = () => Push(new PlayfieldScreen()),
 
                     Children = new Drawable[]
                     {
@@ -87,7 +89,7 @@ namespace THSharp.Game.Screens
 
                             Colour = Color4.White,
                             TextSize = 24,
-                            Text = "Player"
+                            Text = "Playfield"
                         }
                     }
                 }
