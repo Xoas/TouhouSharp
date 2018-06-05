@@ -117,7 +117,6 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         protected virtual void Death()
         {
             Dead = true;
-            Delete();
         }
 
         protected virtual void Revive()
