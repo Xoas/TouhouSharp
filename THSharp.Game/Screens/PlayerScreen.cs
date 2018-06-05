@@ -1,14 +1,15 @@
-﻿using System.Linq;
+﻿using osu.Framework.Allocation;
+using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
 
 namespace THSharp.Game.Screens
 {
     public class PlayerScreen : THSharpMenuScreen
     {
-        public PlayerScreen()
+        [BackgroundDependencyLoader]
+        private void load(THSharpConfigManager config)
         {
-            if (GamemodeStore.LoadedGamemodes.FirstOrDefault() != null)
-                Child = GamemodeStore.LoadedGamemodes.FirstOrDefault()?.GetGamemodePlayfield();
+            Child = GamemodeStore.GetWorkingGamemode(config.Get<string>(THSharpSetting.Gamemode))?.GetGamemodePlayfield();
         }
     }
 }
