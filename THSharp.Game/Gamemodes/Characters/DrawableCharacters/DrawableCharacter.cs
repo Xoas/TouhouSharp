@@ -4,17 +4,15 @@ using osu.Framework.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Gamemodes.Playfield;
-using THSharp.Game.Gamemodes.Projectiles;
 using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
 using THSharp.Game.Graphics;
 
 namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 {
-    public abstract class DrawableCharacter<C> : SymcolContainer
-        where C : Character
+    public abstract class DrawableCharacter : SymcolContainer
     {
         #region Fields
-        public readonly C Character;
+        public readonly Character Character;
 
         public double Health { get; private set; }
 
@@ -25,7 +23,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         public SymcolHitbox Hitbox;
         #endregion
 
-        protected DrawableCharacter(C c, GamemodePlayfield playfield)
+        protected DrawableCharacter(Character c, GamemodePlayfield playfield)
         {
             Character = c;
             GamemodePlayfield = playfield;
@@ -57,10 +55,8 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
             MovementAnimations();
 
             foreach (Drawable draw in GamemodePlayfield)
-            {
-                if (draw is DrawableProjectile<Projectile> drawableProjectile && drawableProjectile.Hitbox != null)
+                if (draw is DrawableProjectile drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
-            }            
         }
 
         /// <summary>
@@ -71,7 +67,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         /// <summary>
         /// Called once for every bullet per frame
         /// </summary>
-        protected virtual void ParseProjectiles(DrawableProjectile<Projectile> drawableProjectile)
+        protected virtual void ParseProjectiles(DrawableProjectile drawableProjectile)
         {
             if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
             {

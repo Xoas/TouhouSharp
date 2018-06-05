@@ -6,16 +6,17 @@ using OpenTK;
 using Symcol.Core.Graphics.Containers;
 using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
+using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
 using THSharp.Game.Graphics;
 using THSharp.Gamemodes.TouhouSharp.Playfield;
-using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 {
-    public abstract class DrawableTouhouSharpCharacter<C> : DrawableCharacter<C>
-        where C : TouhouSharpCharacter
+    public abstract class DrawableTouhouSharpCharacter : DrawableCharacter
     {
         protected readonly TouhouSharpPlayfield TouhouSharpPlayfield;
+
+        public readonly TouhouSharpCharacter TouhouSharpCharacter;
 
         protected SymcolContainer RealityContainer { get; set; }
         protected SymcolSprite RealitySpriteStill { get; set; }
@@ -29,9 +30,10 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 
         protected CircularContainer VisibleHitbox;
 
-        protected DrawableTouhouSharpCharacter(C c, TouhouSharpPlayfield playfield)
+        protected DrawableTouhouSharpCharacter(TouhouSharpCharacter c, TouhouSharpPlayfield playfield)
             : base(c, playfield)
         {
+            TouhouSharpCharacter = c;
             TouhouSharpPlayfield = playfield;
 
             Anchor = Anchor.TopLeft;
@@ -136,15 +138,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         {
             base.Update();
 
-            foreach (Drawable draw in TouhouSharpPlayfield.GameField.Current)
-            {
-                if (draw is DrawableBullet drawableProjectile && drawableProjectile.Hitbox != null)
-                    if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
-                    {
-                        Hurt(drawableProjectile.Projectile.Damage);
-                        drawableProjectile.Expire();
-                    }
-            }
+            foreach (Drawable draw in GamemodePlayfield)
+                if (draw is DrawableProjectile drawableProjectile && drawableProjectile.Hitbox != null)
+                    ParseProjectiles(drawableProjectile);
         }
     }
 }

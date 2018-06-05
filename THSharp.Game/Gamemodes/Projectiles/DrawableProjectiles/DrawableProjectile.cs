@@ -3,14 +3,14 @@ using Symcol.Core.Graphics.Containers;
 
 namespace THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles
 {
-    public abstract class DrawableProjectile<P> : SymcolContainer
-        where P : Projectile
+    public abstract class DrawableProjectile : SymcolContainer
     {
-        public P Projectile { get; }
+        // ReSharper disable once NotAccessedField.Local
+        public readonly Projectile Projectile;
 
         public readonly SymcolHitbox Hitbox;
 
-        protected DrawableProjectile(P p)
+        protected DrawableProjectile(Projectile p)
         {
             Projectile = p;
             Add(Hitbox = new SymcolHitbox(p.Size, p.Shape)

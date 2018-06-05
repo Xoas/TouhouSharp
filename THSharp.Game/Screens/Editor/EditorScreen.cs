@@ -1,8 +1,11 @@
-﻿using osu.Framework.Graphics;
+﻿using osu.Framework.Allocation;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Input;
 using OpenTK.Graphics;
 using OpenTK.Input;
+using THSharp.Game.Config;
+using THSharp.Game.Gamemodes;
 using THSharp.Game.Screens.Editor.Pieces;
 
 namespace THSharp.Game.Screens.Editor
@@ -11,8 +14,11 @@ namespace THSharp.Game.Screens.Editor
     {
         public override bool ShowToolBar => false;
 
-        public EditorScreen()
+        [BackgroundDependencyLoader]
+        private void load(THSharpConfigManager config)
         {
+            Gamemode g = GamemodeStore.GetSelectedGamemode(config.Get<string>(THSharpSetting.Gamemode));
+
             Children = new Drawable[]
             {
                 new Box
@@ -20,10 +26,10 @@ namespace THSharp.Game.Screens.Editor
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.Blue
                 },
-                new TopBar(),
-                new LeftBar(),
-                new RightBar(),
-                new BottomBar(), 
+                new TopBar(g),
+                new LeftBar(g),
+                new RightBar(g),
+                new BottomBar(g),
             };
         }
 

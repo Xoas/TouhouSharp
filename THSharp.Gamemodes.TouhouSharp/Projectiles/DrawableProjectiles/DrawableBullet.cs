@@ -6,10 +6,12 @@ using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces;
 
 namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
 {
-    public class DrawableBullet : DrawableProjectile<Bullet>
+    public class DrawableBullet : DrawableProjectile
     {
         public override bool HandleMouseInput => false;
         public override bool HandleKeyboardInput => false;
+
+        public readonly Bullet Bullet;
 
         //TODO: Make everything in the playfield use one of these
         public Vector4 BulletBounds = new Vector4(-10, -10, 520, 830);
@@ -18,6 +20,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
 
         public DrawableBullet(Bullet b) : base(b)
         {
+            Bullet = b;
+
             Add(new BulletPiece(this));
 
             Anchor = Anchor.TopLeft;
@@ -40,7 +44,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
 
         private Vector2 getBulletVelocity()
         {
-            return new Vector2((float)Projectile.Speed * (float)Math.Cos(Projectile.Angle), (float)Projectile.Speed * (float)Math.Sin(Projectile.Angle));
+            return new Vector2((float)Bullet.Speed * (float)Math.Cos(Projectile.Angle), (float)Bullet.Speed * (float)Math.Sin(Projectile.Angle));
         }
     }
 }

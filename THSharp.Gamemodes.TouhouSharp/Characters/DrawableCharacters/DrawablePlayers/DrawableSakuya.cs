@@ -7,7 +7,7 @@ using THSharp.Gamemodes.TouhouSharp.Playfield;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
 {
-    public class DrawableSakuya : DrawableTouhouSharpPlayer<Sakuya>
+    public class DrawableSakuya : DrawableTouhouSharpPlayer
     {
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public double SetRate { get; private set; }

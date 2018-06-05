@@ -14,10 +14,11 @@ using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
 {
-    public abstract class DrawableTouhouSharpPlayer<P> : DrawableTouhouSharpCharacter<P>
-        where P : TouhouSharpPlayer
+    public abstract class DrawableTouhouSharpPlayer : DrawableTouhouSharpCharacter
     {
         protected readonly THSharpInputHandler THSharpInputHandler;
+
+        public readonly TouhouSharpPlayer TouhouSharpPlayer;
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
 
@@ -31,9 +32,11 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public double Energy { get; private set; }
 
-        protected DrawableTouhouSharpPlayer(P p, TouhouSharpPlayfield playfield)
+        protected DrawableTouhouSharpPlayer(TouhouSharpPlayer p, TouhouSharpPlayfield playfield)
             : base(p, playfield)
         {
+            TouhouSharpPlayer = p;
+
             Add(THSharpInputHandler = new THSharpInputHandler());
 
             THSharpInputHandler.Pressed = Pressed;

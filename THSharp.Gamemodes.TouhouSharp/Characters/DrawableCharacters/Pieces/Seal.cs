@@ -11,13 +11,11 @@ using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Graphics;
 using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
-using THSharp.Gamemodes.TouhouSharp.Characters.Players;
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 {
     //TODO: get rid of all these ReSharper disables with the Character Upgrade
-    public class Seal<C> : Container
-        where C : DrawableTouhouSharpPlayer<TouhouSharpPlayer>
+    public class Seal : Container
     {
         public Container Sign { get; private set; }
 
@@ -33,7 +31,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
         // ReSharper disable once NotAccessedField.Local
         private CircularProgress energy;
 
-        private readonly C character;
+        private readonly DrawableTouhouSharpPlayer character;
 
         // ReSharper disable once NotAccessedField.Local
         private Sprite gear1;
@@ -46,7 +44,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
         // ReSharper disable once NotAccessedField.Local
         private Sprite gear5;
 
-        public Seal(C character)
+        public Seal(DrawableTouhouSharpPlayer character)
         {
             this.character = character;
         }
@@ -237,8 +235,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 
             Sign.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 0.1f);
 
-            Sign.Alpha = (float)character.Energy / (float)(character.Character.MaxEnergy * 2);
-            energy.Current.Value = character.Energy / character.Character.MaxEnergy;
+            Sign.Alpha = (float)character.Energy / (float)(character.TouhouSharpPlayer.MaxEnergy * 2);
+            energy.Current.Value = character.Energy / character.TouhouSharpPlayer.MaxEnergy;
 
             health.Current.Value = character.Health / character.Character.MaxHealth;
             

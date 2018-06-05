@@ -2,12 +2,13 @@
 using osu.Framework.Graphics.Shapes;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
+using THSharp.Game.Gamemodes;
 
 namespace THSharp.Game.Screens.Editor.Pieces
 {
     public class LeftBar : SymcolContainer
     {
-        public LeftBar()
+        public LeftBar(Gamemode g)
         {
             Anchor = Anchor.CentreLeft;
             Origin = Anchor.CentreLeft;
