@@ -72,7 +72,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
             if (Hitbox.HitDetect(Hitbox, drawableProjectile.Hitbox))
             {
                 Hurt(drawableProjectile.Projectile.Damage);
-                drawableProjectile.Delete();
+                drawableProjectile.Expire();
             }
         }
 
