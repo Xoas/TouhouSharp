@@ -106,7 +106,7 @@ namespace THSharp.Game.Graphics.UI.Toolbar.Pieces
 
             protected override bool OnHover(InputState state)
             {
-                this.ScaleTo(Vector2.One, 100, Easing.InCubic);
+                this.ScaleTo(Vector2.One, 200, Easing.OutCubic);
 
                 return base.OnHover(state);
             }
@@ -115,7 +115,7 @@ namespace THSharp.Game.Graphics.UI.Toolbar.Pieces
             {
                 base.OnHoverLost(state);
 
-                this.ScaleTo(new Vector2(0.8f), 100, Easing.OutCubic);
+                this.ScaleTo(new Vector2(0.8f), 200, Easing.OutCubic);
             }
 
             protected override void Update()
