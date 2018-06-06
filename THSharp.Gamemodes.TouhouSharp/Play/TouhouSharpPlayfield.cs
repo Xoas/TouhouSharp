@@ -24,7 +24,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Play
         {
             base.Update();
 
-            if (RNG.Next(1, 1000) < Time.Current / 500)
+            if (RNG.Next(1, 1000) < Time.Current / 1000)
                 GameField.Add(new DrawableBullet(new Bullet
                 {
                     StartPosition = new Vector2(RNG.Next(0, 512), 0),
