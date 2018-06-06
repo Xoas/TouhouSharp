@@ -39,6 +39,8 @@ namespace THSharp.Game.Screens.Editor.Pieces
             {
                 Name = "Border";
 
+                Anchor = Anchor.Centre;
+                Origin = Anchor.Centre;
                 RelativeSizeAxes = Axes.Both;
                 Masking = true;
 
