@@ -1,5 +1,6 @@
 ﻿using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
+using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Gamemodes.Play;
@@ -14,13 +15,24 @@ namespace THSharp.Game.Screens.Editor.Pieces
 
         protected EditorPlayfield()
         {
-            Children = new Drawable[]
+            RelativeSizeAxes = Axes.Both;
+
+            Child = new DeadContainer
             {
-                Playfield = GetPlayfield()
+                RelativeSizeAxes = Axes.Both,
+                Child = Playfield = GetPlayfield()
             };
             Playfield.Add(new BorderContainer());
         }
 
+        //TODO: Hacky as fuck, even for me
+        protected class DeadContainer : SymcolContainer
+        {
+            public override bool HandleMouseInput => false;
+            public override bool HandleKeyboardInput => false;
+        }
+
+        //TODO: make this autosize itself to be larger than playfield slightly
         protected class BorderContainer : SymcolContainer
         {
             public BorderContainer()
@@ -31,7 +43,8 @@ namespace THSharp.Game.Screens.Editor.Pieces
                 Masking = true;
 
                 BorderColour = Color4.White;
-                BorderThickness = 3;
+                BorderThickness = 8;
+                Scale = new Vector2(1.04f);
 
                 Child = new Box
                 {

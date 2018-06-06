@@ -4,6 +4,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Input;
 using OpenTK.Graphics;
 using OpenTK.Input;
+using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Edit;
@@ -31,6 +32,17 @@ namespace THSharp.Game.Screens.Editor
                 new LeftBar(editor),
                 new RightBar(),
                 new BottomBar(),
+                new SymcolContainer
+                {
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+
+                    RelativeSizeAxes = Axes.Both,
+                    Height = 0.6f,
+                    Width = 0.5f,
+
+                    Child = editor.GetEditorPlayfield()
+                }
             };
         }
 
