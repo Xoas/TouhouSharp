@@ -14,9 +14,9 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 {
     public abstract class DrawableTouhouSharpCharacter : DrawableCharacter
     {
-        protected readonly TouhouSharpPlayfield TouhouSharpPlayfield;
+        protected new readonly TouhouSharpPlayfield Playfield;
 
-        public readonly TouhouSharpCharacter TouhouSharpCharacter;
+        public new readonly TouhouSharpCharacter Character;
 
         protected SymcolContainer RealityContainer { get; set; }
         protected SymcolSprite RealitySpriteStill { get; set; }
@@ -33,8 +33,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         protected DrawableTouhouSharpCharacter(TouhouSharpCharacter c, TouhouSharpPlayfield playfield)
             : base(c, playfield)
         {
-            TouhouSharpCharacter = c;
-            TouhouSharpPlayfield = playfield;
+            Character = c;
+            Playfield = playfield;
 
             Anchor = Anchor.TopLeft;
             Origin = Anchor.Centre;
@@ -138,7 +138,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
         {
             base.Update();
 
-            foreach (Drawable draw in TouhouSharpPlayfield.GameField.Current)
+            foreach (Drawable draw in Playfield.GameField.Current)
                 if (draw is DrawableProjectile drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
         }

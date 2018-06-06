@@ -18,7 +18,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
     {
         protected readonly THSharpInputHandler THSharpInputHandler;
 
-        public readonly TouhouSharpPlayer Player;
+        public new readonly TouhouSharpPlayer Character;
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
 
@@ -35,7 +35,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
         protected DrawableTouhouSharpPlayer(TouhouSharpPlayer p, TouhouSharpPlayfield playfield)
             : base(p, playfield)
         {
-            Player = p;
+            Character = p;
 
             Add(THSharpInputHandler = new THSharpInputHandler());
 
@@ -115,7 +115,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
         {
             DrawableBullet drawableBullet;
 
-            TouhouSharpPlayfield.GameField.Add(drawableBullet = new DrawableBullet(new Bullet
+            Playfield.GameField.Add(drawableBullet = new DrawableBullet(new Bullet
             {
                 //StartTime = Time.Current,
                 StartPosition = Position,

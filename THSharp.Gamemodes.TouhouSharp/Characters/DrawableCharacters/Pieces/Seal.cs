@@ -14,7 +14,7 @@ using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayer
 
 namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 {
-    //TODO: get rid of all these ReSharper disables with the Character Upgrade
+    //TODO: get rid of all these ReSharper disables with the Character Upgrade mk. II
     public class Seal : Container
     {
         public Container Sign { get; private set; }
@@ -235,8 +235,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 
             Sign.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 0.1f);
 
-            Sign.Alpha = (float)character.Energy / (float)(character.Player.MaxEnergy * 2);
-            energy.Current.Value = character.Energy / character.Player.MaxEnergy;
+            Sign.Alpha = (float)character.Energy / (float)(character.Character.MaxEnergy * 2);
+            energy.Current.Value = character.Energy / character.Character.MaxEnergy;
 
             health.Current.Value = character.Health / character.Character.MaxHealth;
             

@@ -18,7 +18,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
         public bool Dead { get; protected set; }
 
-        protected readonly Playfield GamemodePlayfield;
+        protected readonly Playfield Playfield;
 
         public SymcolHitbox Hitbox;
         #endregion
@@ -26,7 +26,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         protected DrawableCharacter(Character c, Playfield playfield)
         {
             Character = c;
-            GamemodePlayfield = playfield;
+            Playfield = playfield;
 
             Size = c.Size;
             Add(Hitbox = new SymcolHitbox(new Vector2((float)c.HitboxWidth), c.HitboxShape));
@@ -54,7 +54,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
             MovementAnimations();
 
-            foreach (Drawable draw in GamemodePlayfield)
+            foreach (Drawable draw in Playfield)
                 if (draw is DrawableProjectile drawableProjectile && drawableProjectile.Hitbox != null)
                     ParseProjectiles(drawableProjectile);
         }

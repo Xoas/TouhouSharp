@@ -4,12 +4,12 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
 {
     public class DrawableTouhouSharpEnemy : DrawableTouhouSharpCharacter
     {
-        public readonly TouhouSharpEnemy Enemy;
+        public new readonly TouhouSharpEnemy Character;
 
         public DrawableTouhouSharpEnemy(TouhouSharpEnemy e, TouhouSharpPlayfield playfield)
             : base(e, playfield)
         {
-            Enemy = e;
+            Character = e;
         }
     }
 }

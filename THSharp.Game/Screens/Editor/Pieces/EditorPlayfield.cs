@@ -46,7 +46,7 @@ namespace THSharp.Game.Screens.Editor.Pieces
 
                 BorderColour = Color4.White;
                 BorderThickness = 8;
-                Scale = new Vector2(1.04f);
+                Scale = new Vector2(1.02f);
 
                 Child = new Box
                 {
