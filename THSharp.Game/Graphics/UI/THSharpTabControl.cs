@@ -71,6 +71,7 @@ namespace THSharp.Game.Graphics.UI
                         Margin = new MarginPadding { Top = 5, Bottom = 5 },
                         Origin = Anchor.BottomLeft,
                         Anchor = Anchor.BottomLeft,
+                        // ReSharper disable once SuspiciousTypeConversion.Global
                         Text = (value as IHasDescription)?.Description ?? (value as Enum)?.GetDescription() ?? value.ToString(),
                         TextSize = 20
                     }
