@@ -8,7 +8,7 @@ using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Graphics.UI;
 using THSharp.Game.NeuralNetworking;
 using THSharp.Gamemodes.TouhouSharp.Characters.Players;
-using THSharp.Gamemodes.TouhouSharp.Playfield;
+using THSharp.Gamemodes.TouhouSharp.Play;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
@@ -18,7 +18,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
     {
         protected readonly THSharpInputHandler THSharpInputHandler;
 
-        public readonly TouhouSharpPlayer TouhouSharpPlayer;
+        public readonly TouhouSharpPlayer Player;
 
         public Dictionary<THSharpAction, bool> Actions = new Dictionary<THSharpAction, bool>();
 
@@ -35,7 +35,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
         protected DrawableTouhouSharpPlayer(TouhouSharpPlayer p, TouhouSharpPlayfield playfield)
             : base(p, playfield)
         {
-            TouhouSharpPlayer = p;
+            Player = p;
 
             Add(THSharpInputHandler = new THSharpInputHandler());
 

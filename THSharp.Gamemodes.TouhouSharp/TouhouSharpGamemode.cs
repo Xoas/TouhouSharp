@@ -1,15 +1,22 @@
 ﻿using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
 using THSharp.Game.Gamemodes;
-using THSharp.Game.Gamemodes.Playfield;
+using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Gamemodes.Play;
 using THSharp.Game.Graphics;
-using THSharp.Gamemodes.TouhouSharp.Playfield;
+using THSharp.Gamemodes.TouhouSharp.Play;
 
 namespace THSharp.Gamemodes.TouhouSharp
 {
-    public class TouhouSharpLookup : Gamemode
+    public class TouhouSharpGamemode : Gamemode
     {
-        public override GamemodePlayfield GetGamemodePlayfield() => new TouhouSharpPlayfield();
+        public override Playfield GetPlayfield() => new TouhouSharpPlayfield();
+
+        public override ObjectConverter ObjectConverter => null;
+
+        //public override DrawableCharacter GetDrawablePlayer() => null;
+
+        public override GamemodeEditor GetEditor() => null;
 
         public override string Name => "TouhouSharp";
 

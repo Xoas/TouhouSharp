@@ -2,13 +2,12 @@
 using osu.Framework.Graphics.Shapes;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
-using THSharp.Game.Gamemodes;
 
 namespace THSharp.Game.Screens.Editor.Pieces
 {
     public class BottomBar : SymcolContainer
     {
-        public BottomBar(Gamemode g)
+        public BottomBar()
         {
             Anchor = Anchor.BottomCentre;
             Origin = Anchor.BottomCentre;

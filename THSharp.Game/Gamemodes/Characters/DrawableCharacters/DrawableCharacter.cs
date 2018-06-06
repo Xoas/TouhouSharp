@@ -3,7 +3,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
-using THSharp.Game.Gamemodes.Playfield;
+using THSharp.Game.Gamemodes.Play;
 using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
 using THSharp.Game.Graphics;
 
@@ -18,12 +18,12 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
 
         public bool Dead { get; protected set; }
 
-        protected readonly GamemodePlayfield GamemodePlayfield;
+        protected readonly Playfield GamemodePlayfield;
 
         public SymcolHitbox Hitbox;
         #endregion
 
-        protected DrawableCharacter(Character c, GamemodePlayfield playfield)
+        protected DrawableCharacter(Character c, Playfield playfield)
         {
             Character = c;
             GamemodePlayfield = playfield;

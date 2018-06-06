@@ -19,7 +19,7 @@ namespace THSharp.Game.Screens.Gameplay
                 RelativeSizeAxes = Axes.Both,
                 Colour = Color4.Blue
             };
-            Add(GamemodeStore.GetWorkingGamemode(config.Get<string>(THSharpSetting.Gamemode))?.GetGamemodePlayfield());
+            Add(GamemodeStore.GetWorkingGamemode(config.Get<string>(THSharpSetting.Gamemode))?.GetPlayfield());
         }
     }
 }

@@ -5,7 +5,7 @@ using osu.Framework.Graphics.Effects;
 using OpenTK;
 using Symcol.Core.Graphics.Containers;
 
-namespace THSharp.Gamemodes.TouhouSharp.Playfield
+namespace THSharp.Gamemodes.TouhouSharp.Play
 {
     public class AbstractionField : SymcolContainer
     {

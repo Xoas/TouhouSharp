@@ -12,6 +12,13 @@ namespace THSharp.Game.Gamemodes
     //Source for most of this: osu.Game.Rulesets.RulesetStore.cs
     public static class GamemodeStore
     {
+#pragma warning disable 1587
+        /// <summary>
+        /// Currently selected gamemode
+        /// </summary>
+#pragma warning restore 1587
+        //public static Gamemode CurrentGamemode;
+
         /// <summary>
         /// List of all currently loaded Gamemodes
         /// </summary>

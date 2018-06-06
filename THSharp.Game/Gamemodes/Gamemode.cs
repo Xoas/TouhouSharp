@@ -1,13 +1,20 @@
 ﻿using osu.Framework.Graphics.Textures;
 using osu.Framework.Platform;
-using THSharp.Game.Gamemodes.Playfield;
+using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Gamemodes.Play;
 using THSharp.Game.Graphics;
 
 namespace THSharp.Game.Gamemodes
 {
     public abstract class Gamemode
     {
-        public abstract GamemodePlayfield GetGamemodePlayfield();
+        public abstract Playfield GetPlayfield();
+
+        public abstract ObjectConverter ObjectConverter { get; }
+
+        //public abstract DrawableCharacter GetDrawablePlayer();
+
+        public virtual GamemodeEditor GetEditor() => null;
 
         public virtual string Name => "";
 

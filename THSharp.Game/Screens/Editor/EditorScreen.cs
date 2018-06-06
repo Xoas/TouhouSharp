@@ -6,6 +6,7 @@ using OpenTK.Graphics;
 using OpenTK.Input;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
+using THSharp.Game.Gamemodes.Edit;
 using THSharp.Game.Screens.Editor.Pieces;
 
 namespace THSharp.Game.Screens.Editor
@@ -17,7 +18,7 @@ namespace THSharp.Game.Screens.Editor
         [BackgroundDependencyLoader]
         private void load(THSharpConfigManager config)
         {
-            Gamemode g = GamemodeStore.GetGamemode(config.Get<string>(THSharpSetting.Gamemode));
+            GamemodeEditor editor = GamemodeStore.GetGamemode(config.Get<string>(THSharpSetting.Gamemode)).GetEditor();
 
             Children = new Drawable[]
             {
@@ -26,10 +27,10 @@ namespace THSharp.Game.Screens.Editor
                     RelativeSizeAxes = Axes.Both,
                     Colour = Color4.Blue
                 },
-                new TopBar(g),
-                new LeftBar(g),
-                new RightBar(g),
-                new BottomBar(g),
+                new TopBar(),
+                new LeftBar(editor),
+                new RightBar(),
+                new BottomBar(),
             };
         }
 

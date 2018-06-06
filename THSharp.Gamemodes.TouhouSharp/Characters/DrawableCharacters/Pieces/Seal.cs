@@ -235,8 +235,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
 
             Sign.RotateTo((float)(-Clock.CurrentTime / 1000 * 90) * 0.1f);
 
-            Sign.Alpha = (float)character.Energy / (float)(character.TouhouSharpPlayer.MaxEnergy * 2);
-            energy.Current.Value = character.Energy / character.TouhouSharpPlayer.MaxEnergy;
+            Sign.Alpha = (float)character.Energy / (float)(character.Player.MaxEnergy * 2);
+            energy.Current.Value = character.Energy / character.Player.MaxEnergy;
 
             health.Current.Value = character.Health / character.Character.MaxHealth;
             
