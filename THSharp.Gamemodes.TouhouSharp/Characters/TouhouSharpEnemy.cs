@@ -2,6 +2,6 @@
 {
     public class TouhouSharpEnemy : TouhouSharpCharacter
     {
-        public override string Name => "";
+        public override string Name => "Enemy";
     }
 }

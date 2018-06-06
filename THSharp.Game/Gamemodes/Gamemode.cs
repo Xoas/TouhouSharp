@@ -10,6 +10,9 @@ namespace THSharp.Game.Gamemodes
     {
         public abstract Playfield GetPlayfield();
 
+        // ReSharper disable once InconsistentNaming
+        public virtual UI UI => new UI();
+
         public abstract ObjectConverter ObjectConverter { get; }
 
         //public abstract DrawableCharacter GetDrawablePlayer();

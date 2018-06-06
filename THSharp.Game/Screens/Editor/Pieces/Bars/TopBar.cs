@@ -3,7 +3,7 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 
-namespace THSharp.Game.Screens.Editor.Pieces
+namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {
     public class TopBar : SymcolContainer
     {

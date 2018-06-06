@@ -6,6 +6,8 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles
 {
     public class Bullet : Projectile
     {
+        public override string Name => "Bullet";
+
         //TODO: bullets will come in all shapes and sizes
         public override Shape Shape => Shape.Circle;
 

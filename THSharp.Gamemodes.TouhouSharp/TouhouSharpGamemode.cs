@@ -4,6 +4,7 @@ using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Edit;
 using THSharp.Game.Gamemodes.Play;
 using THSharp.Game.Graphics;
+using THSharp.Gamemodes.TouhouSharp.Edit;
 using THSharp.Gamemodes.TouhouSharp.Play;
 
 namespace THSharp.Gamemodes.TouhouSharp
@@ -16,7 +17,7 @@ namespace THSharp.Gamemodes.TouhouSharp
 
         //public override DrawableCharacter GetDrawablePlayer() => null;
 
-        public override GamemodeEditor GetEditor() => null;
+        public override GamemodeEditor GetEditor() => new TouhouSharpEditor();
 
         public override string Name => "TouhouSharp";
 

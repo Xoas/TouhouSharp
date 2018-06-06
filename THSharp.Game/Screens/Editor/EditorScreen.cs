@@ -7,7 +7,7 @@ using OpenTK.Input;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Edit;
-using THSharp.Game.Screens.Editor.Pieces;
+using THSharp.Game.Screens.Editor.Pieces.Bars;
 
 namespace THSharp.Game.Screens.Editor
 {

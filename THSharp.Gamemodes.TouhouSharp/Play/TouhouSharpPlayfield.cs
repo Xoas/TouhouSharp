@@ -1,26 +1,21 @@
 ﻿using System;
-using osu.Framework.Graphics;
 using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
+using THSharp.Game.Gamemodes.Play;
 using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
 using THSharp.Gamemodes.TouhouSharp.Projectiles;
 using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play
 {
-    public class TouhouSharpPlayfield : Game.Gamemodes.Play.Playfield
+    public class TouhouSharpPlayfield : Playfield
     {
         public readonly AbstractionField GameField;
 
         public TouhouSharpPlayfield()
         {
-            Anchor = Anchor.Centre;
-            Origin = Anchor.Centre;
-            RelativeSizeAxes = Axes.Both;
-            Name = "TouhouSharpPlayfield";
-
-            Add(GameField = new AbstractionField { Size = new Vector2(512, 820) });
+            Add(GameField = new AbstractionField());
 
             GameField.Current.Add(new DrawableSakuya(this));
         }
@@ -40,8 +35,6 @@ namespace THSharp.Gamemodes.TouhouSharp.Play
                     Color = Color4.Red,
                     Team = 3,
                 }));
-
-            GameField.Scale = new Vector2(DrawSize.Y * 10f / 16f / GameField.Size.X, DrawSize.Y / GameField.Size.Y) * 0.8f;
         }
     }
 }

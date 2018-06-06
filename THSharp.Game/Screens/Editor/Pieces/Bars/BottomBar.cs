@@ -3,19 +3,18 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 
-namespace THSharp.Game.Screens.Editor.Pieces
+namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {
-    public class RightBar : SymcolContainer
+    public class BottomBar : SymcolContainer
     {
-        public RightBar()
+        public BottomBar()
         {
-            Anchor = Anchor.CentreRight;
-            Origin = Anchor.CentreRight;
+            Anchor = Anchor.BottomCentre;
+            Origin = Anchor.BottomCentre;
 
             RelativeSizeAxes = Axes.Both;
 
-            Width = 0.2f;
-            Height = 0.6f;
+            Height = 0.18f;
 
             Child = new Box
             {

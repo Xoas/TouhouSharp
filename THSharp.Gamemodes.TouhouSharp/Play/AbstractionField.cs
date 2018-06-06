@@ -23,6 +23,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Play
 
             AbstractionLevel = abstraction;
 
+            RelativeSizeAxes = Axes.Both;
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
             Name = "AbstractionField";

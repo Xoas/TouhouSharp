@@ -12,6 +12,8 @@ namespace THSharp.Game.Gamemodes.Projectiles
         /// </summary>
         public int Team { get; set; }
 
+        public virtual string Name => "Projectile";
+
         public double Damage { get; set; } = 10;
 
         public Vector2 StartPosition { get; set; }
