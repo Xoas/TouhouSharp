@@ -1,5 +1,8 @@
-﻿using osu.Framework.Graphics;
+﻿using osu.Framework.Extensions.Color4Extensions;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 
@@ -18,13 +21,18 @@ namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces
             Size = drawableBullet.Projectile.Size;
 
             Masking = true;
-            BorderThickness = 4;
-            BorderColour = Color4.White;
 
             Child = new Box
             {
                 RelativeSizeAxes = Axes.Both,
-                Colour = drawableBullet.Projectile.Color
+                Colour = Color4.White
+            };
+
+            EdgeEffect = new EdgeEffectParameters
+            {
+                Colour = drawableBullet.Projectile.Color.Opacity(0.5f),
+                Type = EdgeEffectType.Shadow,
+                Radius = drawableBullet.Projectile.Size.X / 2
             };
         }
     }
