@@ -30,7 +30,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Play
                     StartPosition = new Vector2(RNG.Next(0, 512), 0),
                     Angle = Math.PI / 2,
                     Speed = 0.2f,
-                    Diameter = 20,
+                    Diameter = 28,
                     Damage = 10,
                     Color = Color4.Red,
                     Team = 3,

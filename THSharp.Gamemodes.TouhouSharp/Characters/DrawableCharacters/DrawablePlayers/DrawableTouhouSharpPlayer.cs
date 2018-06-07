@@ -155,13 +155,13 @@ namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePl
                 double damage;
                 if (i % 2 == 0)
                 {
-                    size = 20;
+                    size = 24;
                     damage = 24;
                     color = Character.PrimaryColor;
                 }
                 else
                 {
-                    size = 12;
+                    size = 18;
                     damage = 18;
                     color = Character.SecondaryColor;
                 }
