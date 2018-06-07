@@ -15,6 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Framework", "osu-framew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THSharp.Gamemodes.TouhouSharp", "THSharp.Gamemodes.TouhouSharp\THSharp.Gamemodes.TouhouSharp.csproj", "{30BECE80-917B-43A0-9D16-8629F6875FAE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Game", "osu\osu.Game\osu.Game.csproj", "{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Symcol.Rulesets.Core", "osu\Symcol.Rulesets.Core\Symcol.Rulesets.Core.csproj", "{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "osu", "osu", "{4F557A3B-9E62-4288-9461-377C1C48F332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,9 +51,21 @@ Global
 		{30BECE80-917B-43A0-9D16-8629F6875FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30BECE80-917B-43A0-9D16-8629F6875FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30BECE80-917B-43A0-9D16-8629F6875FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D100A43-3A43-4BAB-AAAF-E17A3DAD375A} = {4F557A3B-9E62-4288-9461-377C1C48F332}
+		{7298A8B1-27A4-4C76-BFCB-3CF4D08DBFDB} = {4F557A3B-9E62-4288-9461-377C1C48F332}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F351B246-0159-4490-8505-3292A47E0233}

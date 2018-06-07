@@ -149,6 +149,7 @@ namespace osu.Framework.Graphics.Cursor
                 AddInternal((Drawable)currentTooltip);
 
                 currentTooltip.Show();
+                RefreshTooltip(currentTooltip, target);
             }
         }
 
@@ -165,7 +166,6 @@ namespace osu.Framework.Graphics.Cursor
         private IHasTooltip findTooltipTarget()
         {
             // While we are dragging a tooltipped drawable we should show a tooltip for it.
-            // ReSharper disable once SuspiciousTypeConversion.Global
             if (inputManager.DraggedDrawable is IHasTooltip draggedTarget)
                 return hasValidTooltip(draggedTarget) ? draggedTarget : null;
 
@@ -269,10 +269,7 @@ namespace osu.Framework.Graphics.Cursor
             /// </summary>
             public virtual string TooltipText
             {
-                set
-                {
-                    text.Text = value;
-                }
+                set => text.Text = value;
             }
 
             public override bool HandleKeyboardInput => false;

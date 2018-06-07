@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj" />
+    <ProjectReference Include="..\osu\osu.Game\osu.Game.csproj" />
     <ProjectReference Include="..\Symcol.Core\Symcol.Core.csproj" />
     <ProjectReference Include="..\THSharp.Game.Resources\THSharp.Game.Resources.csproj" />
     <ProjectReference Include="..\THSharp.Gamemodes.TouhouSharp\THSharp.Gamemodes.TouhouSharp.csproj" />

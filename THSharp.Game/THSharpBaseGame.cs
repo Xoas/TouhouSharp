@@ -1,4 +1,5 @@
 ﻿using osu.Framework.Allocation;
+using osu.Framework.IO.Stores;
 using osu.Framework.Platform;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes.Difficulties;
@@ -14,8 +15,6 @@ namespace THSharp.Game
 
         protected DifficultyStorage DifficultyStorage;
 
-        protected override string MainResourceFile => "THSharp.Game.Resources.dll";
-
         private DependencyContainer dependencies;
 
         protected override IReadOnlyDependencyContainer CreateLocalDependencies(IReadOnlyDependencyContainer parent) =>
@@ -24,6 +23,8 @@ namespace THSharp.Game
         [BackgroundDependencyLoader]
         private void load()
         {
+            Resources.AddStore(new DllResourceStore("THSharp.Game.Resources.dll"));
+
             dependencies.Cache(this);
             dependencies.Cache(THSharpConfigManager);
             dependencies.Cache(THSharpSkinElement);
