@@ -58,7 +58,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\Textures\bulletKiai.png" />
     <EmbeddedResource Include="Assets\Textures\Dean.png" />
-    <EmbeddedResource Include="Assets\Textures\enemy.png" />
+    <EmbeddedResource Include="Assets\Textures\Enemy.png" />
     <EmbeddedResource Include="Assets\Textures\enemyKiai.png" />
     <EmbeddedResource Include="Assets\Textures\gearLarge.png" />
     <EmbeddedResource Include="Assets\Textures\gearMedium.png" />

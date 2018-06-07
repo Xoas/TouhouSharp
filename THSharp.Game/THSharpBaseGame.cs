@@ -1,7 +1,7 @@
 ﻿using osu.Framework.Allocation;
 using osu.Framework.Platform;
 using THSharp.Game.Config;
-using THSharp.Game.Difficulties;
+using THSharp.Game.Gamemodes.Difficulties;
 using THSharp.Game.Graphics;
 
 namespace THSharp.Game

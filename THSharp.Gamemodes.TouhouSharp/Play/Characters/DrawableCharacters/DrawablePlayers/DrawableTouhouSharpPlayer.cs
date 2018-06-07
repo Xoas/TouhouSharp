@@ -110,7 +110,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.Drawa
         }
 
         #region Shooting Handling
-        private void bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
+        private DrawableBullet bulletAddRad(double speed, double angle, Color4 color, double size, double damage)
         {
             DrawableBullet drawableBullet;
 
@@ -131,7 +131,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.Drawa
 
             //if (vampuric)
             //drawableBullet.OnHit = () => Heal(0.5f);
-            drawableBullet.MoveTo(Position);
+            return drawableBullet;
         }
 
         protected void PatternWave()

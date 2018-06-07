@@ -9,7 +9,7 @@ namespace THSharp.Game.Screens.Editor.Pieces
 {
     public abstract class EditorPlayfield : SymcolContainer
     {
-        public abstract Playfield GetPlayfield();
+        protected abstract Playfield GetPlayfield();
 
         protected readonly Playfield Playfield;
 

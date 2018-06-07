@@ -5,24 +5,20 @@ using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Gamemodes.Characters;
 using THSharp.Game.Gamemodes.Edit;
-using THSharp.Game.Gamemodes.Projectiles;
 using THSharp.Game.Graphics.UI;
 
 namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {
-    public class LeftBar : SideBar
+    public class LeftBar : SideBar<LeftBarTabs>
     {
-        public LeftBar(GamemodeEditor e)
+        public LeftBar(GamemodeEditor e) : base(Anchor.CentreLeft)
         {
-            Anchor = Anchor.CentreLeft;
-            Origin = Anchor.CentreLeft;
-
             RelativeSizeAxes = Axes.Both;
 
             Width = 0.2f;
             Height = 0.6f;
 
-            THSharpTabControl<BarTabs> tabControl;
+            THSharpTabControl<LeftBarTabs> tabControl;
             FillFlowContainer<SelectionItem> content;
 
             Children = new Drawable[]
@@ -34,7 +30,7 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
                     Alpha = 0.6f
                 },
                 //TODO: Make this thing pretty
-                tabControl = new THSharpTabControl<BarTabs>
+                tabControl = new THSharpTabControl<LeftBarTabs>
                 {
                     Anchor = Anchor.TopCentre,
                     Origin = Anchor.TopCentre,
@@ -56,19 +52,7 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
             {
                 switch (value)
                 {
-                    case BarTabs.Projectiles:
-                        content.Children = new SelectionItem[] { };
-                        foreach (Projectile p in e.Projectiles)
-                            content.Add(new SelectionItem(p.Name, () =>
-                            {
-                                foreach (SelectionItem i in content)
-                                {
-                                    i.FadeTo(0.5f, 200, Easing.OutCubic);
-                                    i.Selected = false;
-                                }
-                            }));
-                        break;
-                    case BarTabs.Enemies:
+                    case LeftBarTabs.Enemies:
                         content.Children = new SelectionItem[] { };
                         foreach (Character c in e.Enemies)
                             content.Add(new SelectionItem(c.Name, () =>
@@ -84,11 +68,10 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
             };
             tabControl.Current.TriggerChange();
         }
+    }
 
-        private enum BarTabs
-        {
-            Projectiles,
-            Enemies
-        }
+    public enum LeftBarTabs
+    {
+        Enemies
     }
 }

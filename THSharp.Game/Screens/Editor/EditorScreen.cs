@@ -5,7 +5,6 @@ using osu.Framework.Input;
 using OpenTK.Graphics;
 using OpenTK.Input;
 using Symcol.Core.Graphics.Containers;
-using Symcol.Core.Graphics.UserInterface;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Edit;
@@ -17,9 +16,9 @@ namespace THSharp.Game.Screens.Editor
     {
         protected override bool ShowToolBar => false;
 
-#pragma warning disable 169
-        private readonly SymcolWindow confirmExit;
-#pragma warning restore 169
+        //private readonly SymcolWindow confirmExit;
+
+        //private readonly SymcolWindow patternEditor;
 
         [BackgroundDependencyLoader]
         private void load(THSharpConfigManager config)
@@ -35,7 +34,7 @@ namespace THSharp.Game.Screens.Editor
                 },
                 new TopBar(),
                 new LeftBar(editor),
-                new RightBar(),
+                new RightBar(editor),
                 new BottomBar(),
                 new SymcolContainer
                 {
@@ -51,7 +50,7 @@ namespace THSharp.Game.Screens.Editor
             };
         }
 
-        //TODO: Confirm exit for saving changes
+        //TODO: Confirm exit for unsaved changes
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
         {
             if (args.Repeat || !IsCurrentScreen) return false;

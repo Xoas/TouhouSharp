@@ -3,9 +3,9 @@ using System.IO;
 using osu.Framework.Logging;
 using osu.Framework.Platform;
 
-namespace THSharp.Game.Difficulties
+namespace THSharp.Game.Gamemodes.Difficulties
 {
-    public class DifficultyStorage
+    public sealed class DifficultyStorage
     {
         private static Storage storage;
 

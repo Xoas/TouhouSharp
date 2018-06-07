@@ -1,27 +1,52 @@
 ﻿using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
-using OpenTK.Graphics;
+using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Gamemodes.Projectiles;
+using THSharp.Game.Gamemodes.Projectiles.Patterns;
 
 namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {
-    public class RightBar : SideBar
+    public class RightBar : SideBar<RightBarTabs>
     {
-        public RightBar()
+        public RightBar(GamemodeEditor e) : base(Anchor.CentreRight)
         {
-            Anchor = Anchor.CentreRight;
-            Origin = Anchor.CentreRight;
-
-            RelativeSizeAxes = Axes.Both;
-
-            Width = 0.2f;
-            Height = 0.6f;
-
-            Child = new Box
+            TabControl.Current.ValueChanged += value =>
             {
-                RelativeSizeAxes = Axes.Both,
-                Colour = Color4.Black,
-                Alpha = 0.6f
+                switch (value)
+                {
+                    case RightBarTabs.Patterns:
+                        ItemList.Children = new SelectionItem[] { };
+                        if (e.Patterns != null)
+                            foreach (Pattern p in e.Patterns)
+                                ItemList.Add(new SelectionItem(p.Name, () =>
+                                {
+                                    foreach (SelectionItem i in ItemList)
+                                    {
+                                        i.FadeTo(0.5f, 200, Easing.OutCubic);
+                                        i.Selected = false;
+                                    }
+                                }));
+                        break;
+                    case RightBarTabs.Projectiles:
+                        ItemList.Children = new SelectionItem[] { };
+                        foreach (Projectile p in e.Projectiles)
+                            ItemList.Add(new SelectionItem(p.Name, () =>
+                            {
+                                foreach (SelectionItem i in ItemList)
+                                {
+                                    i.FadeTo(0.5f, 200, Easing.OutCubic);
+                                    i.Selected = false;
+                                }
+                            }));
+                        break;
+                }
             };
+            TabControl.Current.TriggerChange();
         }
+    }
+
+    public enum RightBarTabs
+    {
+        Patterns,
+        Projectiles
     }
 }
