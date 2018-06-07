@@ -2,7 +2,6 @@
 using osu.Framework.Graphics;
 using OpenTK;
 using Symcol.Core.GameObjects;
-using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Gamemodes.Play.Objects.Characters;
 using THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableProjectiles;
 using THSharp.Game.Graphics;

@@ -14,7 +14,7 @@ namespace THSharp.Gamemodes.TouhouSharp.Edit.Editables
 {
     public class EditableEnemy : EditableCharacter
     {
-        private Sprite sprite = new Sprite
+        private readonly Sprite sprite = new Sprite
         {
             Anchor = Anchor.Centre,
             Origin = Anchor.Centre,

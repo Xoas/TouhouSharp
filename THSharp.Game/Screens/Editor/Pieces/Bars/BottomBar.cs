@@ -142,7 +142,7 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
             private double getX(double value)
             {
                 double scale = (0 - DrawWidth) / (0 - editableClock.DifficultyLength);
-                return DrawWidth + ((value - editableClock.DifficultyLength) * scale);
+                return DrawWidth + (value - editableClock.DifficultyLength) * scale;
             }
         }
     }
