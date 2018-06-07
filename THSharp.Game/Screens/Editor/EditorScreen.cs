@@ -8,6 +8,7 @@ using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Config;
 using THSharp.Game.Gamemodes;
 using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Screens.Editor.Pieces;
 using THSharp.Game.Screens.Editor.Pieces.Bars;
 
 namespace THSharp.Game.Screens.Editor
@@ -15,6 +16,8 @@ namespace THSharp.Game.Screens.Editor
     public class EditorScreen : THSharpScreen
     {
         protected override bool ShowToolBar => false;
+
+        private readonly EditableClock clock = new EditableClock();
 
         //private readonly SymcolWindow confirmExit;
 
@@ -35,7 +38,7 @@ namespace THSharp.Game.Screens.Editor
                 new TopBar(),
                 new LeftBar(editor),
                 new RightBar(editor),
-                new BottomBar(),
+                new BottomBar(clock),
                 new SymcolContainer
                 {
                     Anchor = Anchor.Centre,
@@ -45,7 +48,8 @@ namespace THSharp.Game.Screens.Editor
                     Height = 0.6f,
                     Width = 0.5f,
 
-                    Child = editor.GetEditorPlayfield()
+                    Child = editor.GetEditorPlayfield(),
+                    Clock = clock
                 }
             };
         }

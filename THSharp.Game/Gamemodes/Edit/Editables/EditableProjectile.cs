@@ -5,6 +5,6 @@ namespace THSharp.Game.Gamemodes.Edit.Editables
 {
     public abstract class EditableProjectile : Editable<Projectile, DrawableProjectile>
     {
-
+        
     }
 }

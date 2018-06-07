@@ -1,7 +1,7 @@
 ﻿using osu.Framework.Graphics;
 using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Gamemodes.Edit.Editables;
 using THSharp.Game.Gamemodes.Play.Objects.Patterns;
-using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
 namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {
@@ -28,8 +28,8 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
                         break;
                     case RightBarTabs.Projectiles:
                         ItemList.Children = new SelectionItem[] { };
-                        foreach (Projectile p in e.Projectiles)
-                            ItemList.Add(new SelectionItem(p.Name, () =>
+                        foreach (EditableProjectile p in e.EditableProjectiles)
+                            ItemList.Add(new SelectionItem(p.GetNewObject().Name, () =>
                             {
                                 foreach (SelectionItem i in ItemList)
                                 {

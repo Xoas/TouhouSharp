@@ -1,7 +1,7 @@
 ﻿using THSharp.Game.Gamemodes.Edit;
 using THSharp.Game.Gamemodes.Edit.Editables;
-using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 using THSharp.Game.Screens.Editor.Pieces;
+using THSharp.Gamemodes.TouhouSharp.Edit.Editables;
 
 namespace THSharp.Gamemodes.TouhouSharp.Edit
 {
@@ -9,17 +9,14 @@ namespace THSharp.Gamemodes.TouhouSharp.Edit
     {
         public override EditorPlayfield GetEditorPlayfield() => new TouhouSharpEditorPlayfield(); 
 
-        public override Projectile[] Projectiles => new Projectile[]
+        public override EditableProjectile[] EditableProjectiles => new EditableProjectile[]
         {
-            //new Bullet(),
-            //new Laser(),
-            //new Pawn(),
+            new EditableBullet(),
         };
 
-        public override EditableCharacter[] Enemies => new EditableCharacter[]
+        public override EditableCharacter[] EditableEnemies => new EditableCharacter[]
         {
-            //new TouhouSharpEnemy(),
-            //new TouhouSharpBoss(),
+            new EditableEnemy(),
         };
     }
 }

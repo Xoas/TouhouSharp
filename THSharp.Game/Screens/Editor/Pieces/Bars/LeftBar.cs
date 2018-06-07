@@ -54,7 +54,7 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
                 {
                     case LeftBarTabs.Enemies:
                         content.Children = new SelectionItem[] { };
-                        foreach (EditableCharacter c in e.Enemies)
+                        foreach (EditableCharacter c in e.EditableEnemies)
                             content.Add(new SelectionItem(c.GetNewObject().Name, () =>
                             {
                                 foreach (SelectionItem i in content)
