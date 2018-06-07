@@ -1,7 +1,7 @@
 ﻿using osu.Framework.Graphics;
 using THSharp.Game.Gamemodes.Edit;
-using THSharp.Game.Gamemodes.Projectiles;
-using THSharp.Game.Gamemodes.Projectiles.Patterns;
+using THSharp.Game.Gamemodes.Play.Objects.Patterns;
+using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
 namespace THSharp.Game.Screens.Editor.Pieces.Bars
 {

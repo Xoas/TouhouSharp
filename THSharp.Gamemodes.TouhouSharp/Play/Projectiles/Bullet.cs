@@ -1,6 +1,6 @@
 ﻿using OpenTK;
 using Symcol.Core.GameObjects;
-using THSharp.Game.Gamemodes.Projectiles;
+using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play.Projectiles
 {

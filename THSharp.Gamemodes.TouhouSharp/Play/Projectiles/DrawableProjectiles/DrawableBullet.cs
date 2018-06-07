@@ -1,7 +1,7 @@
 ﻿using System;
 using osu.Framework.Graphics;
 using OpenTK;
-using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
+using THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableProjectiles;
 using THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles.Pieces;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles

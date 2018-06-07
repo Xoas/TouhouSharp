@@ -1,15 +1,15 @@
-﻿using OpenTK;
-using osu.Framework.Allocation;
+﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
+using OpenTK;
 using Symcol.Core.GameObjects;
 using Symcol.Core.Graphics.Containers;
-using THSharp.Game.Gamemodes.Play;
-using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
+using THSharp.Game.Gamemodes.Play.Objects.Characters;
+using THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableProjectiles;
 using THSharp.Game.Graphics;
 
-namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
+namespace THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableCharacters
 {
-    public abstract class DrawableCharacter : SymcolContainer
+    public abstract class DrawableCharacter : DrawableTHSharpObject
     {
         #region Fields
         public readonly Character Character;
@@ -23,7 +23,7 @@ namespace THSharp.Game.Gamemodes.Characters.DrawableCharacters
         public SymcolHitbox Hitbox;
         #endregion
 
-        protected DrawableCharacter(Character c, Playfield playfield)
+        protected DrawableCharacter(Character c, Playfield playfield) : base(c)
         {
             Character = c;
             Playfield = playfield;

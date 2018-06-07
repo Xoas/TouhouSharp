@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using THSharp.Game.Gamemodes.Projectiles;
+using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
 namespace THSharp.Game.Gamemodes.Play
 {

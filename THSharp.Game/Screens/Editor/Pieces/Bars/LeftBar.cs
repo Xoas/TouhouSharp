@@ -3,8 +3,8 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using OpenTK.Graphics;
-using THSharp.Game.Gamemodes.Characters;
 using THSharp.Game.Gamemodes.Edit;
+using THSharp.Game.Gamemodes.Edit.Editables;
 using THSharp.Game.Graphics.UI;
 
 namespace THSharp.Game.Screens.Editor.Pieces.Bars
@@ -54,8 +54,8 @@ namespace THSharp.Game.Screens.Editor.Pieces.Bars
                 {
                     case LeftBarTabs.Enemies:
                         content.Children = new SelectionItem[] { };
-                        foreach (Character c in e.Enemies)
-                            content.Add(new SelectionItem(c.Name, () =>
+                        foreach (EditableCharacter c in e.Enemies)
+                            content.Add(new SelectionItem(c.GetNewObject().Name, () =>
                             {
                                 foreach (SelectionItem i in content)
                                 {

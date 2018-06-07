@@ -3,16 +3,11 @@ using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 
-namespace THSharp.Game.Gamemodes.Projectiles
+namespace THSharp.Game.Gamemodes.Play.Objects.Projectiles
 {
-    public abstract class Projectile
+    public abstract class Projectile : THSharpObject
     {
-        /// <summary>
-        /// The Team this projectile is on and will therefor not harm by default
-        /// </summary>
-        public int Team { get; set; }
-
-        public virtual string Name => "Projectile";
+        public override string Name => "Projectile";
 
         public double Damage { get; set; } = 10;
 

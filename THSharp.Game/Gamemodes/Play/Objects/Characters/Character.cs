@@ -2,16 +2,13 @@
 using OpenTK.Graphics;
 using Symcol.Core.GameObjects;
 
-namespace THSharp.Game.Gamemodes.Characters
+namespace THSharp.Game.Gamemodes.Play.Objects.Characters
 {
-    public abstract class Character
+    public abstract class Character : THSharpObject
     {
-        public abstract string Name { get; }
+        public override string Name => "Character";
 
         public virtual double MaxHealth => 80;
-
-        //TODO: do this differently so multiplayer will be good
-        public virtual int Team => 0;
 
         public virtual Vector2 Size => new Vector2(32);
 

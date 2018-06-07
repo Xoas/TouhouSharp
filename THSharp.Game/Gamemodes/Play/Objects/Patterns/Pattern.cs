@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
-namespace THSharp.Game.Gamemodes.Projectiles.Patterns
+namespace THSharp.Game.Gamemodes.Play.Objects.Patterns
 {
     //TODO: Patterns are un-intuitive as shit!
     public abstract class Pattern

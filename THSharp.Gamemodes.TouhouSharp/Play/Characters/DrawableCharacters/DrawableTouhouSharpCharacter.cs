@@ -5,8 +5,8 @@ using osu.Framework.Graphics.Shapes;
 using OpenTK;
 using Symcol.Core.Graphics.Containers;
 using Symcol.Core.Graphics.Sprites;
-using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
-using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
+using THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableCharacters;
+using THSharp.Game.Gamemodes.Play.Objects.DrawableObjects.DrawableProjectiles;
 using THSharp.Game.Graphics;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters

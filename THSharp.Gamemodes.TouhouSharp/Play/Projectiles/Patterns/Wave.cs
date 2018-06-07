@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OpenTK;
-using THSharp.Game.Gamemodes.Projectiles;
-using THSharp.Game.Gamemodes.Projectiles.Patterns;
+using THSharp.Game.Gamemodes.Play.Objects.Patterns;
+using THSharp.Game.Gamemodes.Play.Objects.Projectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play.Projectiles.Patterns
 {
