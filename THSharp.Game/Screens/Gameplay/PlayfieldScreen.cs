@@ -9,7 +9,7 @@ namespace THSharp.Game.Screens.Gameplay
 {
     public class PlayfieldScreen : THSharpMenuScreen
     {
-        public override bool ShowToolBar => false;
+        protected override bool ShowToolBar => false;
 
         [BackgroundDependencyLoader]
         private void load(THSharpConfigManager config)
