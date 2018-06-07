@@ -2,9 +2,9 @@
 using osu.Framework.Graphics;
 using OpenTK;
 using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
-using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles.Pieces;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles.Pieces;
 
-namespace THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles
+namespace THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles
 {
     public class DrawableBullet : DrawableProjectile
     {

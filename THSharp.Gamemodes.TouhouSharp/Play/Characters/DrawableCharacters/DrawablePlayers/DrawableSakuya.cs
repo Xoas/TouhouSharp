@@ -2,10 +2,9 @@
 using OpenTK;
 using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Graphics;
-using THSharp.Gamemodes.TouhouSharp.Characters.Players;
-using THSharp.Gamemodes.TouhouSharp.Play;
+using THSharp.Gamemodes.TouhouSharp.Play.Characters.Players;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
+namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.DrawablePlayers
 {
     public class DrawableSakuya : DrawableTouhouSharpPlayer
     {

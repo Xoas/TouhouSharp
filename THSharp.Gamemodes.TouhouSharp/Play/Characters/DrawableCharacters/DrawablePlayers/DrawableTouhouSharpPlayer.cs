@@ -7,12 +7,11 @@ using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 using THSharp.Game.Graphics.UI;
 using THSharp.Game.NeuralNetworking;
-using THSharp.Gamemodes.TouhouSharp.Characters.Players;
-using THSharp.Gamemodes.TouhouSharp.Play;
-using THSharp.Gamemodes.TouhouSharp.Projectiles;
-using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
+using THSharp.Gamemodes.TouhouSharp.Play.Characters.Players;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers
+namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.DrawablePlayers
 {
     public abstract class DrawableTouhouSharpPlayer : DrawableTouhouSharpCharacter
     {

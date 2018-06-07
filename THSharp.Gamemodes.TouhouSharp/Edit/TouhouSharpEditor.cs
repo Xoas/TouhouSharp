@@ -2,8 +2,8 @@
 using THSharp.Game.Gamemodes.Edit;
 using THSharp.Game.Gamemodes.Projectiles;
 using THSharp.Game.Screens.Editor.Pieces;
-using THSharp.Gamemodes.TouhouSharp.Characters;
-using THSharp.Gamemodes.TouhouSharp.Projectiles;
+using THSharp.Gamemodes.TouhouSharp.Play.Characters;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Edit
 {

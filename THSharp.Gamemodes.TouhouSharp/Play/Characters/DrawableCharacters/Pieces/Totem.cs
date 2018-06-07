@@ -1,6 +1,6 @@
 ﻿using Symcol.Core.Graphics.Containers;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
+namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.Pieces
 {
     public class Totem : SymcolContainer
     {

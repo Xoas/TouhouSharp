@@ -1,6 +1,4 @@
-﻿using THSharp.Gamemodes.TouhouSharp.Play;
-
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
+﻿namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters
 {
     public class DrawableTouhouSharpEnemy : DrawableTouhouSharpCharacter
     {

@@ -1,4 +1,4 @@
-﻿namespace THSharp.Gamemodes.TouhouSharp.Characters
+﻿namespace THSharp.Gamemodes.TouhouSharp.Play.Characters
 {
     public class TouhouSharpBoss : TouhouSharpCharacter
     {

@@ -3,9 +3,9 @@ using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Gamemodes.Play;
-using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
-using THSharp.Gamemodes.TouhouSharp.Projectiles;
-using THSharp.Gamemodes.TouhouSharp.Projectiles.DrawableProjectiles;
+using THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.DrawablePlayers;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles;
+using THSharp.Gamemodes.TouhouSharp.Play.Projectiles.DrawableProjectiles;
 
 namespace THSharp.Gamemodes.TouhouSharp.Play
 {

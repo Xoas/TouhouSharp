@@ -6,6 +6,6 @@ namespace THSharp.Gamemodes.TouhouSharp.Edit
 {
     public class TouhouSharpEditorPlayfield : EditorPlayfield
     {
-        public override Playfield GetPlayfield() => new TouhouSharpPlayfield();
+        protected override Playfield GetPlayfield() => new TouhouSharpPlayfield();
     }
 }

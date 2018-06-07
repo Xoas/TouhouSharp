@@ -8,9 +8,8 @@ using Symcol.Core.Graphics.Sprites;
 using THSharp.Game.Gamemodes.Characters.DrawableCharacters;
 using THSharp.Game.Gamemodes.Projectiles.DrawableProjectiles;
 using THSharp.Game.Graphics;
-using THSharp.Gamemodes.TouhouSharp.Play;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters
+namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters
 {
     public abstract class DrawableTouhouSharpCharacter : DrawableCharacter
     {

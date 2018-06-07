@@ -2,7 +2,7 @@
 using Symcol.Core.GameObjects;
 using THSharp.Game.Gamemodes.Projectiles;
 
-namespace THSharp.Gamemodes.TouhouSharp.Projectiles
+namespace THSharp.Gamemodes.TouhouSharp.Play.Projectiles
 {
     public class Bullet : Projectile
     {

@@ -10,9 +10,9 @@ using osu.Framework.MathUtils;
 using OpenTK;
 using OpenTK.Graphics;
 using THSharp.Game.Graphics;
-using THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.DrawablePlayers;
+using THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.DrawablePlayers;
 
-namespace THSharp.Gamemodes.TouhouSharp.Characters.DrawableCharacters.Pieces
+namespace THSharp.Gamemodes.TouhouSharp.Play.Characters.DrawableCharacters.Pieces
 {
     //TODO: get rid of all these ReSharper disables with the Character Upgrade mk. II
     public class Seal : Container
