@@ -17,7 +17,9 @@ namespace THSharp.Game.Screens.Editor
     {
         protected override bool ShowToolBar => false;
 
+#pragma warning disable 169
         private readonly SymcolWindow confirmExit;
+#pragma warning restore 169
 
         [BackgroundDependencyLoader]
         private void load(THSharpConfigManager config)

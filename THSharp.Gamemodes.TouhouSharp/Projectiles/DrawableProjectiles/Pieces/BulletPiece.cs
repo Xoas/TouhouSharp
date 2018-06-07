@@ -2,7 +2,6 @@
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
-using OpenTK;
 using OpenTK.Graphics;
 using Symcol.Core.Graphics.Containers;
 
